@@ -3,9 +3,9 @@
 /**
  * @brief Vérifie si le message à chiffrer ou à déchiffrer 
  * ne comporte que des caractères alphanumériques
- * @param texte Message à analyser
+ * @param texte Pointeur du message
  */
-void verifierAlphanumerique(char texte);
+void verifierAlphanumerique(char* texte);
 
 /**
  * @brief Convertit les accents en chaine alphanumériques

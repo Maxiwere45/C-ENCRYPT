@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#define TAILLE_TABLEAU_ASCII 50
 
-void verifierAlphanumerique(char texte){
-
+void verifierAlphanumerique(char* texte){
+    //char h = 'e';
+    //printf("Lettre : %c - Valeur ASCII : %d",h,h);
 }
 
 void convertirAccents(char texte){
