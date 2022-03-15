@@ -2,25 +2,25 @@
 *  ASR => 4R2.04                                                              *
 *******************************************************************************
 *                                                                             *
-*  N° de Sujet :                                                              *
+*  N° de Sujet : Sujet N°3                                                    *
 *                                                                             *
 *******************************************************************************
 *                                                                             *
-*  Intitulé :                                                                 *
+*  Intitulé :  CHIFFREMENT DE MESSAGE                                         *
 *                                                                             *
 *******************************************************************************
 *                                                                             *
-*  Nom-prénom1 :                                                              *
+*  Nom-prénom1 : Amdjad Anrifou                                               *
 *                                                                             *
-*  Nom-prénom2 :                                                              *
+*  Nom-prénom2 : Bentaila Fabio                                               *
 *                                                                             *
-*  Nom-prénom3 :                                                              *
+*  Nom-prénom3 : Thomas Daure                                                 *
 *                                                                             *
-*  Nom-prénom4 :                                                              *
+*  Nom-prénom4 : Kopec WIktor                                                 *
 *                                                                             *
 *******************************************************************************
 *                                                                             *
-*  Nom du fichier :                                                           *
+*  Nom du fichier :  chiffrementMessage.c + chiffrementMessage.h              *
 *                                                                             *
 ******************************************************************************/
 
