@@ -1,5 +1,5 @@
 all:
-	gcc -c main main.c chiffrementMessage.c
+	gcc -o main main.c chiffrementMessage.c
 
 main: main.o chiffrementMessage.o
 	gcc -o main main.o chiffrementMessage.o

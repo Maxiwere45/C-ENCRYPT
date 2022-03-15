@@ -5,15 +5,18 @@
 #define TAILLE_TABLEAU_ASCII 52
 
 int main(){
-    char monMessage[] = "Hello World";
+    char monMessage[] = "This is the beginning of meditation";
     char* pointeurMessage = monMessage;
     
     int ok = verifierAlphanumerique(pointeurMessage);
-
-    if (ok)
+    if (ok == 0)
     {
-        printf("Tout est ok !");
+        printf("Ce texte est conforme au chfiffrement !\n");
+    } else{
+        printf("Ce texte n'est pas conforme au chfiffrement !\n");
     }
+    
+    
     
     return (EXIT_SUCCESS);
 }

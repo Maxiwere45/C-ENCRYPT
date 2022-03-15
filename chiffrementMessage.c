@@ -6,7 +6,7 @@
 
 int verifierAlphanumerique(char* texte){
     int sizeTEXTE = strlen(texte);
-    // Tableau contenant les correspondance en décimal des
+    // Tableau contenant des correspondances en décimal des
     // caractères alphanumérique
     int* tableauASCII = (int*) malloc(4 * (TAILLE_TABLEAU_ASCII));
     char* tableauCARACTERES = (char*) malloc(sizeof(char) * strlen(texte));
@@ -27,32 +27,40 @@ int verifierAlphanumerique(char* texte){
     //>> [OMPTIMISATION SEMI-POSSIBLE]
     int count = 0;
     while (count < TAILLE_TABLEAU_ASCII) {
+        // Caractères en MAJUSCULE [A..Z]
         for (int i = 65; i <= 90; i++) {
             tableauASCII[count] = i;
             count++;
         }
+        // CARACTERE EN MINUSCULE [a...z]
         for (int i = 97; i <= 122; i++) {
             tableauASCII[count] = i;
             count++;
         }
+        // espace inclus
         tableauASCII[count] = 32;
         count++;
     }
 
+    // Remplissage du tableau des valeurs DEC
+    // de chaque caractère du message
     for (int i = 0; i < sizeTEXTE; i++) {
         tableauCARACTERES[i] = (int) texte[i];
     }
 
+    // Analyse alphanumérique de chaque caractère
     int corresTROUVE = 0;
     //>> [OMPTIMISATION SEMI-POSSIBLE] 
-    for (int i = 0; i < sizeTEXTE; i++) {
-        for (int j = 0; j < TAILLE_TABLEAU_ASCII; j++){
+    for (int i = 0; i <= sizeTEXTE; i++) {
+        for (int j = 0; j <= TAILLE_TABLEAU_ASCII; j++){
             if (tableauCARACTERES[i] == tableauASCII[j]) {
                 corresTROUVE++;
+                break;
             }
         }
     }
 
+    // Vidage de la mémoire après utilisation des tableau
     free(tableauASCII);
     free(tableauCARACTERES);
 
