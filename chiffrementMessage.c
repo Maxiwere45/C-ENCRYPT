@@ -9,7 +9,7 @@ int verifierAlphanumerique(char* texte){
     // Tableau contenant des correspondances en décimal des
     // caractères alphanumérique
     int* tableauASCII = (int*) malloc(4 * (TAILLE_TABLEAU_ASCII));
-    char* tableauCARACTERES = (char*) malloc(sizeof(char) * strlen(texte));
+    int* tableauCARACTERES = (int*) malloc(sizeof(int) * strlen(texte));
 
     //========= VERIFICATION DE L'ALLOCATION =================//
     if (tableauASCII == NULL) {
@@ -24,7 +24,7 @@ int verifierAlphanumerique(char* texte){
     //=========================================================//
 
     // Remplissage du tableau ASCII alphanumérique [+ SPACE]
-    //>> [OMPTIMISATION SEMI-POSSIBLE]
+    //>> [OPTIMISATION SEMI-POSSIBLE]
     int count = 0;
     while (count < TAILLE_TABLEAU_ASCII) {
         // Caractères en MAJUSCULE [A..Z]
