@@ -83,20 +83,68 @@ int chiffrer(char *texte, int cle){
     if (verifierAlphanumerique(texte) == 1){
         return EXIT_FAILURE;
     }
-    // Allocation dynamique du message chiffrée
-    char *messageChiffree = NULL;
-    messageChiffree = malloc((strlen(texte))*sizeof(char));
-    
 
-    if (messageChiffree == NULL) {
+    if (cle > 26 || cle < 0){
+        return EXIT_FAILURE;
+    }
+    
+    int sizeTEXTE = strlen(texte);
+
+    int* tableauCARACTERESCHIFFRE = NULL;
+    // Allocation dynamique du message chiffrée
+    tableauCARACTERESCHIFFRE = malloc(4 * (strlen(texte)));
+
+    if (tableauCARACTERESCHIFFRE == NULL)
+    {
         perror("Echec de l'allocation mémoire");
         exit(EXIT_FAILURE);
     }
-
-
-
+    
+    // Remplissage du tableau des valeurs DEC
+    // de chaque caractère du message
+    int c;
+    for (int i = 0; i < sizeTEXTE; i++) {
+        c = (int)texte[i];
+        switch (c) {
+        // ASCII MAJUSCULE
+        case 88:
+            tableauCARACTERESCHIFFRE[i] = 65 + (cle - 3);
+            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            break;
+        case 89:
+            tableauCARACTERESCHIFFRE[i] = 66 + (cle - 3);
+            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            break;
+        case 90:
+            tableauCARACTERESCHIFFRE[i] = 67 + (cle - 3);
+            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            break;
+        
+        // ASCII MINUSCULE
+        case 120:
+            tableauCARACTERESCHIFFRE[i] = 97 + (cle - 3);
+            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            break;
+        case 121:
+            tableauCARACTERESCHIFFRE[i] = 98 + (cle - 3);
+            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            break;
+        case 122:
+            tableauCARACTERESCHIFFRE[i] = 99 + (cle - 3);
+            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            break;
+        case 32:
+            tableauCARACTERESCHIFFRE[i] = 35;
+            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            break;
+        default:
+            tableauCARACTERESCHIFFRE[i] = c + cle;
+            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            break;
+        }
+    }
+    free(tableauCARACTERESCHIFFRE);
     return EXIT_SUCCESS;
-
 }
 
 // ========================================
