@@ -49,12 +49,12 @@ int verifierAlphanumerique(char* texte){
     }
 
     // Analyse alphanumérique de chaque caractère
-    int corresTROUVE = 0;
+    int charAlpha = 0;
     //>> [OMPTIMISATION SEMI-POSSIBLE] 
     for (int i = 0; i <= sizeTEXTE; i++) {
         for (int j = 0; j <= TAILLE_TABLEAU_ASCII; j++){
             if (tableauCARACTERES[i] == tableauASCII[j]) {
-                corresTROUVE++;
+                charAlpha++;
                 break;
             }
         }
@@ -64,7 +64,8 @@ int verifierAlphanumerique(char* texte){
     free(tableauASCII);
     free(tableauCARACTERES);
 
-    if (corresTROUVE == sizeTEXTE) {
+    // vérification de l'égalité alphanumérique
+    if (charAlpha == sizeTEXTE) {
         return (EXIT_SUCCESS);
     } else{
         return (EXIT_FAILURE);
