@@ -81,11 +81,13 @@ void convertirAccents(char *texte){
 int chiffrer(char *texte, int cle){
     // appel de la fonction de vérification
     if (verifierAlphanumerique(texte) == 1){
-        return EXIT_FAILURE;
+        perror("Ce message n'est pas conforme au chiffrement !");
+        exit(EXIT_FAILURE);
     }
 
     if (cle > 26 || cle < 0){
-        return EXIT_FAILURE;
+        perror("Clé de chiffrement invalide ! [0 < clé < 26]");
+        exit(EXIT_FAILURE);
     }
     
     int sizeTEXTE = strlen(texte);
@@ -94,8 +96,7 @@ int chiffrer(char *texte, int cle){
     // Allocation dynamique du message chiffrée
     tableauCARACTERESCHIFFRE = malloc(4 * (strlen(texte)));
 
-    if (tableauCARACTERESCHIFFRE == NULL)
-    {
+    if (tableauCARACTERESCHIFFRE == NULL) {
         perror("Echec de l'allocation mémoire");
         exit(EXIT_FAILURE);
     }

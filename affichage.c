@@ -11,21 +11,21 @@ int main(){
     char *monMessagechiffre = NULL;
     monMessagechiffre = malloc(sizeof(char) * strlen(monMessage));
     stpcpy(monMessagechiffre,monMessage);
-    int cle = 8;
+    int cle = 27;
 
     if (verifierAlphanumerique(monMessage) == 1) {
         perror("Ce message n'est pas conforme au chiffrement !");
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
+    } else {
+        if (cle > 26 || cle < 0) {
+        perror("Clé de chiffrement invalide !");
+        exit(EXIT_FAILURE);
+        } else{
+            printf("====CHIFFREMENT=======\n");
+            chiffrer(monMessagechiffre,cle);
+            printf("%s\n", monMessagechiffre);
+            free(monMessagechiffre);
+            return EXIT_SUCCESS;
+        }
     }
-
-    if (cle > 26 || cle < 0) {
-        perror("Clé de chiffrement invalide ! [0 < clé < 26]");
-        return EXIT_FAILURE;
-    }
-
-    printf("====CHIFFREMENT=======\n");
-    chiffrer(monMessagechiffre,cle);
-    printf("%s\n", monMessagechiffre);
-    free(monMessagechiffre);
-    return EXIT_SUCCESS;
 }
