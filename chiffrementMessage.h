@@ -6,33 +6,35 @@
  * @param texte Pointeur du message
  * @return int
  */
-int verifierAlphanumerique(char* texte);
+int verifierAlphanumerique(char *texte);
 
 /**
  * @brief Convertit les accents en chaine alphanumériques
  * @param texte Message contenant des caractères alphanumériques
  */
-void convertirAccents(char texte);
+void convertirAccents(char *texte);
 
 /**
- * @brief Retourne une chaine de caractères chiffré
- * 
+ * @brief Crypte un message
  * @param texte Message à chiffrer
- * @return char 
+ * @param cle Clé de chiffrement
+ * @return int 
  */
-char chiffrer(char texte);
+int chiffrer(char *texte, int cle);
 
 /**
- * @brief Retourne une chaine de caractères déchiffré 
+ * @brief Déchiffre un message chiffré
  * 
  * @param texte Message à déchiffrer
- * @return char 
+ * @param cle Clé de déchiffrement
+ * @return int
  */
-char dechiffrer(char texte);
+int dechiffrer(char *texte, int cle);
 
 /**
  * @brief Interface
  * 
  * @param texte Message à chiffrer ou à déchiffrer
+ * @return int
  */
-void affichage(char texte);
+int affichage();

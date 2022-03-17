@@ -4,12 +4,14 @@
 #include <stdbool.h>
 #define TAILLE_TABLEAU_ASCII 52
 
-int verifierAlphanumerique(char* texte){
+int verifierAlphanumerique(const char *texte){
     int sizeTEXTE = strlen(texte);
     // Tableau contenant des correspondances en décimal des
     // caractères alphanumérique
-    int* tableauASCII = (int*) malloc(4 * (TAILLE_TABLEAU_ASCII));
-    int* tableauCARACTERES = (int*) malloc(sizeof(int) * strlen(texte));
+    int* tableauASCII = NULL;
+    int* tableauCARACTERES = NULL;
+    tableauASCII = (int*) malloc(4 * (TAILLE_TABLEAU_ASCII)+1);
+    tableauCARACTERES = (int*) malloc(sizeof(int) * strlen(texte));
 
     //========= VERIFICATION DE L'ALLOCATION =================//
     if (tableauASCII == NULL) {
@@ -27,7 +29,7 @@ int verifierAlphanumerique(char* texte){
     //>> [OPTIMISATION SEMI-POSSIBLE]
     int count = 0;
     while (count < TAILLE_TABLEAU_ASCII) {
-        // Caractères en MAJUSCULE [A..Z]
+        // CARACTERE EN MAJUSCULE [A..Z]
         for (int i = 65; i <= 90; i++) {
             tableauASCII[count] = i;
             count++;
@@ -64,7 +66,7 @@ int verifierAlphanumerique(char* texte){
     free(tableauASCII);
     free(tableauCARACTERES);
 
-    // vérification de l'égalité alphanumérique
+    // vérification de l'égalité alphanumérique [+ SPACE]
     if (charAlpha == sizeTEXTE) {
         return (EXIT_SUCCESS);
     } else{
@@ -72,18 +74,67 @@ int verifierAlphanumerique(char* texte){
     }
 }
 
-void convertirAccents(char texte){
+void convertirAccents(char *texte){
 
 }
 
-void chiffrer(char texte){
+int chiffrer(char *texte, int cle){
+    // appel de la fonction de vérification
+    if (verifierAlphanumerique(texte) == 1){
+        return EXIT_FAILURE;
+    }
+    // Allocation dynamique du message chiffrée
+    char *messageChiffree = NULL;
+    messageChiffree = malloc((strlen(texte))*sizeof(char));
+    
+
+    if (messageChiffree == NULL) {
+        perror("Echec de l'allocation mémoire");
+        exit(EXIT_FAILURE);
+    }
+
+
+
+    return EXIT_SUCCESS;
 
 }
 
-void dechiffrer(char texte){
+// ========================================
+/**
+int main(int argc, char *argv[])
+{
+ 
+    char chaine[] = "Texte";
+    char* copie=NULL;
+ 
+    copie = copieur(chaine);
+ 
+ 
+    printf("chaine vaut : %s\n", chaine);
+    printf("copie vaut : %s\n", copie);
+    free(copie);  surtout ne pas oublier de  libérer la mémoire alloué dans la fonction copieur 
+ 
+    return 0;
+ 
+}
+
+ 
+char* copieur(const char *originale)
+{
+    char *copie=NULL;
+    copie=malloc((strlen(originale)+1)*sizeof(char));
+    strcpy(copie,originale);
+    
+    return copie;
+}
+**/
+
+// ========================================
+
+void dechiffrer(const char *texte, int cle){
 
 }
 
-void affichage(char texte){
+int affichage(){
 
 }
