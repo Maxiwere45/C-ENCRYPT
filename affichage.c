@@ -4,14 +4,14 @@
 #include "chiffrementMessage.h"
 
 int main(){
-    char monMessage[] = "This is the beginning of meditation";
+    char monMessage[] = "Aujourd hui le soleil s est leve";
     char* pointeurMessage = monMessage;
 
 
     char *monMessagechiffre = NULL;
     monMessagechiffre = malloc(sizeof(char) * strlen(monMessage));
     stpcpy(monMessagechiffre,monMessage);
-    int cle = 10;
+    int cle = 24;
 
     if (verifierAlphanumerique(monMessage) == 1) {
         perror("Ce message n'est pas conforme au chiffrement !");

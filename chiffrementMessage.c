@@ -81,11 +81,9 @@ void convertirAccents(char *texte){
 int chiffrer(char *texte, int cle){
     // appel de la fonction de vérification
     if (verifierAlphanumerique(texte) == 1){
-        perror("Ce message n'est pas conforme au chiffrement !");
         exit(EXIT_FAILURE);
     }
     if (cle > 25 || cle < 0){
-        perror("Clé de chiffrement invalide ! [0 < clé < 25]");
         exit(EXIT_FAILURE);
     }
     int sizeTEXTE = strlen(texte);
