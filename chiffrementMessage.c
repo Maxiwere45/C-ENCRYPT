@@ -85,7 +85,7 @@ int chiffrer(char *texte, int cle){
         exit(EXIT_FAILURE);
     }
 
-    if (cle > 26 || cle < 0){
+    if (cle > 25 || cle < 0){
         perror("Clé de chiffrement invalide ! [0 < clé < 26]");
         exit(EXIT_FAILURE);
     }
@@ -104,13 +104,54 @@ int chiffrer(char *texte, int cle){
     // Remplissage du tableau des valeurs DEC
     // de chaque caractère du message
     int c;
+    int k = 0;
+    int cp = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
+
         c = (int)texte[i];
+        cp = 0;
+        //>> PHASE TE TEST
+        k = c;
+        if (c >= 65 && c <= 90){
+            if ((c + cle) > 90)
+            {
+                while (k <= 90) {
+                    cp++;
+                    k++;
+                }
+                tableauCARACTERESCHIFFRE[i] = 65 + (cle - cp);
+                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            } else{
+                tableauCARACTERESCHIFFRE[i] = c + cle;
+                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            }
+        } else if(c >= 97 && c <= 122){
+            if ((c + cle) > 122)
+            {
+                while (k <= 122) {
+                    cp++;
+                    k++;
+                }
+                tableauCARACTERESCHIFFRE[i] = 97 + (cle - cp);
+                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            } else{
+                tableauCARACTERESCHIFFRE[i] = c + cle;
+                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            } 
+        } else{
+            if (c == 32) {
+                tableauCARACTERESCHIFFRE[i] = 35;
+                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            }
+        }
+    }
+        //>> PHASE TE TEST
+
+        /**
         switch (c) {
         // ASCII MAJUSCULE
         case 88:
-            tableauCARACTERESCHIFFRE[i] = 65 + (cle - 3);
-            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            
             break;
         case 89:
             tableauCARACTERESCHIFFRE[i] = 66 + (cle - 3);
@@ -143,7 +184,7 @@ int chiffrer(char *texte, int cle){
             texte[i] = (char) tableauCARACTERESCHIFFRE[i];
             break;
         }
-    }
+        **/
     free(tableauCARACTERESCHIFFRE);
     return EXIT_SUCCESS;
 }
