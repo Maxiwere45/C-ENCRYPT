@@ -84,14 +84,11 @@ int chiffrer(char *texte, int cle){
         perror("Ce message n'est pas conforme au chiffrement !");
         exit(EXIT_FAILURE);
     }
-
     if (cle > 25 || cle < 0){
-        perror("Clé de chiffrement invalide ! [0 < clé < 26]");
+        perror("Clé de chiffrement invalide ! [0 < clé < 25]");
         exit(EXIT_FAILURE);
     }
-    
     int sizeTEXTE = strlen(texte);
-
     int* tableauCARACTERESCHIFFRE = NULL;
     // Allocation dynamique du message chiffrée
     tableauCARACTERESCHIFFRE = malloc(4 * (strlen(texte)));
@@ -100,126 +97,51 @@ int chiffrer(char *texte, int cle){
         perror("Echec de l'allocation mémoire");
         exit(EXIT_FAILURE);
     }
-    
-    // Remplissage du tableau des valeurs DEC
-    // de chaque caractère du message
-    int c;
-    int k = 0;
-    int cp = 0;
+    int c,k = 0, cp = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
-
+        //<> Code ASCII de chaque caractère
         c = (int)texte[i];
+
+        //<> compteurs de dépassement
         cp = 0;
-        //>> PHASE TE TEST
         k = c;
+        //<> Intervalle [65..90] <=> [A..Z] du tableau ASCII
         if (c >= 65 && c <= 90){
-            if ((c + cle) > 90)
-            {
-                while (k <= 90) {
-                    cp++;
-                    k++;
-                }
+            //<> Si le caractère chiffré dépasse l'intervalle
+            if ((c + cle) > 90) {
+                //<> Récupération du nombre de pas dépassant l'intervalle [65..90]
+                while (k <= 90) {cp++; k++;}
+                //<> Affectation et chiffrement de chaque caractère
                 tableauCARACTERESCHIFFRE[i] = 65 + (cle - cp);
                 texte[i] = (char) tableauCARACTERESCHIFFRE[i];
             } else{
                 tableauCARACTERESCHIFFRE[i] = c + cle;
                 texte[i] = (char) tableauCARACTERESCHIFFRE[i];
             }
+        //<> Intervalle [a..z] du tableau ASCII
         } else if(c >= 97 && c <= 122){
-            if ((c + cle) > 122)
-            {
-                while (k <= 122) {
-                    cp++;
-                    k++;
-                }
+            if ((c + cle) > 122) {
+                while (k <= 122) {cp++; k++;}
                 tableauCARACTERESCHIFFRE[i] = 97 + (cle - cp);
+                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            } else {
+                tableauCARACTERESCHIFFRE[i] = c + cle;
+                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+            }
+        } else{
+            //<> Caractère [ESPACE] du tableau ASCII
+            if (c == 32) {
+                tableauCARACTERESCHIFFRE[i] = 35;
                 texte[i] = (char) tableauCARACTERESCHIFFRE[i];
             } else{
                 tableauCARACTERESCHIFFRE[i] = c + cle;
                 texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            } 
-        } else{
-            if (c == 32) {
-                tableauCARACTERESCHIFFRE[i] = 35;
-                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
             }
         }
     }
-        //>> PHASE TE TEST
-
-        /**
-        switch (c) {
-        // ASCII MAJUSCULE
-        case 88:
-            
-            break;
-        case 89:
-            tableauCARACTERESCHIFFRE[i] = 66 + (cle - 3);
-            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            break;
-        case 90:
-            tableauCARACTERESCHIFFRE[i] = 67 + (cle - 3);
-            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            break;
-        
-        // ASCII MINUSCULE
-        case 120:
-            tableauCARACTERESCHIFFRE[i] = 97 + (cle - 3);
-            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            break;
-        case 121:
-            tableauCARACTERESCHIFFRE[i] = 98 + (cle - 3);
-            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            break;
-        case 122:
-            tableauCARACTERESCHIFFRE[i] = 99 + (cle - 3);
-            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            break;
-        case 32:
-            tableauCARACTERESCHIFFRE[i] = 35;
-            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            break;
-        default:
-            tableauCARACTERESCHIFFRE[i] = c + cle;
-            texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            break;
-        }
-        **/
     free(tableauCARACTERESCHIFFRE);
     return EXIT_SUCCESS;
 }
-
-// ========================================
-/**
-int main(int argc, char *argv[])
-{
- 
-    char chaine[] = "Texte";
-    char* copie=NULL;
- 
-    copie = copieur(chaine);
- 
- 
-    printf("chaine vaut : %s\n", chaine);
-    printf("copie vaut : %s\n", copie);
-    free(copie);  surtout ne pas oublier de  libérer la mémoire alloué dans la fonction copieur 
- 
-    return 0;
- 
-}
-
- 
-char* copieur(const char *originale)
-{
-    char *copie=NULL;
-    copie=malloc((strlen(originale)+1)*sizeof(char));
-    strcpy(copie,originale);
-    
-    return copie;
-}
-**/
-
-// ========================================
 
 void dechiffrer(const char *texte, int cle){
 
