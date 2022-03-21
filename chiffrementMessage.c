@@ -125,10 +125,10 @@ int chiffrer(char *texte, int cle){
     return EXIT_SUCCESS;
 }
 
-void dechiffrer(const char *texte, int cle){
-
+int dechiffrer(char *texte, int cle){
+    return 0;
 }
 
 int affichage(){
-
+    return 0;
 }
