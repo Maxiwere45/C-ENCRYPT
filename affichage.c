@@ -18,7 +18,7 @@ int main(){
         exit(EXIT_FAILURE);
     } else {
         if (cle > 26 || cle < 0) {
-        perror("Clé de chiffrement invalide !");
+        perror("ClÃ© de chiffrement invalide !");
         exit(EXIT_FAILURE);
         } else{
             printf("====CHIFFREMENT=======\n");

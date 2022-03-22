@@ -1,32 +1,32 @@
 // FICHIER C CONTENANT LES ENTETES DES FONCTIONS DE CHIFFREMENT
 
 /**
- * @brief Vérifie si le message à chiffrer ou à déchiffrer 
- * ne comporte que des caractères alphanumériques
+ * @brief VÃ©rifie si le message Ã  chiffrer ou Ã  dÃ©chiffrer 
+ * ne comporte que des caractÃ¨res alphanumÃ©riques
  * @param texte Pointeur du message
  * @return int
  */
 int verifierAlphanumerique(char *texte);
 
 /**
- * @brief Convertit les accents en chaine alphanumériques
- * @param texte Message contenant des caractères alphanumériques
+ * @brief Convertit les accents en chaine alphanumÃ©riques
+ * @param texte Message contenant des caractÃ¨res alphanumÃ©riques
  */
 void convertirAccents(char *texte);
 
 /**
  * @brief Crypte un message
- * @param texte Message à chiffrer
- * @param cle Clé de chiffrement
+ * @param texte Message Ã  chiffrer
+ * @param cle ClÃ© de chiffrement
  * @return int 
  */
 int chiffrer(char *texte, int cle);
 
 /**
- * @brief Déchiffre un message chiffré
+ * @brief DÃ©chiffre un message chiffrÃ©
  * 
- * @param texte Message à déchiffrer
- * @param cle Clé de déchiffrement
+ * @param texte Message Ã  dÃ©chiffrer
+ * @param cle ClÃ© de dÃ©chiffrement
  * @return int
  */
 int dechiffrer(char *texte, int cle);
@@ -34,7 +34,7 @@ int dechiffrer(char *texte, int cle);
 /**
  * @brief Interface
  * 
- * @param texte Message à chiffrer ou à déchiffrer
+ * @param texte Message Ã  chiffrer ou Ã  dÃ©chiffrer
  * @return int
  */
 int affichage();

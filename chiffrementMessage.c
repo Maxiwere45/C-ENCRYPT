@@ -6,8 +6,8 @@
 
 int verifierAlphanumerique(const char *texte){
     int sizeTEXTE = strlen(texte);
-    // Tableau contenant des correspondances en décimal des
-    // caractères alphanumérique
+    // Tableau contenant des correspondances en dÃ©cimal des
+    // caractÃ¨res alphanumÃ©rique
     int* tableauASCII = NULL;
     int* tableauCARACTERES = NULL;
     tableauASCII = (int*) malloc(4 * (TAILLE_TABLEAU_ASCII)+1);
@@ -15,17 +15,17 @@ int verifierAlphanumerique(const char *texte){
 
     //========= VERIFICATION DE L'ALLOCATION =================//
     if (tableauASCII == NULL) {
-        perror("Echec de l'allocation mémoire");
+        perror("Echec de l'allocation mÃ©moire");
         exit(EXIT_FAILURE);
     }
 
     if (tableauCARACTERES == NULL) {
-        perror("Echec de l'allocation mémoire");
+        perror("Echec de l'allocation mÃ©moire");
         exit(EXIT_FAILURE);
     }
     //=========================================================//
 
-    // Remplissage du tableau ASCII alphanumérique [+ SPACE]
+    // Remplissage du tableau ASCII alphanumÃ©rique [+ SPACE]
     //>> [OPTIMISATION SEMI-POSSIBLE]
     int count = 0;
     while (count < TAILLE_TABLEAU_ASCII) {
@@ -45,10 +45,10 @@ int verifierAlphanumerique(const char *texte){
     }
 
     // Remplissage du tableau des valeurs DEC
-    // de chaque caractère du message
+    // de chaque caractÃ¨re du message
     for (int i = 0; i < sizeTEXTE; i++) {tableauCARACTERES[i] = (int) texte[i];}
 
-    // Analyse alphanumérique de chaque caractère
+    // Analyse alphanumÃ©rique de chaque caractÃ¨re
     int charAlpha = 0;
     //>> [OMPTIMISATION SEMI-POSSIBLE] 
     for (int i = 0; i <= sizeTEXTE; i++) {
@@ -56,10 +56,10 @@ int verifierAlphanumerique(const char *texte){
             if (tableauCARACTERES[i] == tableauASCII[j]){charAlpha++; break;}
         }
     }
-    // Vidage de la mémoire après utilisation des tableau
+    // Vidage de la mÃ©moire aprÃ¨s utilisation des tableau
     free(tableauASCII);free(tableauCARACTERES);
 
-    // vérification de l'égalité alphanumérique [+ SPACE]
+    // vÃ©rification de l'Ã©galitÃ© alphanumÃ©rique [+ SPACE]
     if (charAlpha == sizeTEXTE) {return (EXIT_SUCCESS);}
     else{return (EXIT_FAILURE);}
 }
@@ -69,31 +69,31 @@ void convertirAccents(char *texte){
 }
 
 int chiffrer(char *texte, int cle){
-    // appel de la fonction de vérification
+    // appel de la fonction de vÃ©rification
     if (verifierAlphanumerique(texte) == 1){exit(EXIT_FAILURE);}
     if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
     int sizeTEXTE = strlen(texte);
     int* tableauCARACTERESCHIFFRE = NULL;
-    // Allocation dynamique du message chiffrée
+    // Allocation dynamique du message chiffrÃ©e
     tableauCARACTERESCHIFFRE = malloc(4 * (strlen(texte)));
     if (tableauCARACTERESCHIFFRE == NULL) {
-        perror("Echec de l'allocation mémoire");
+        perror("Echec de l'allocation mÃ©moire");
         exit(EXIT_FAILURE);
     }
     int corr_ascii,over_flow_garbage = 0, over_flow = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
-        //<> Code ASCII de chaque caractère
+        //<> Code ASCII de chaque caractÃ¨re
         corr_ascii = (int)texte[i];
-        //<> compteurs de dépassement
+        //<> compteurs de dÃ©passement
         over_flow = 0;
         over_flow_garbage = corr_ascii;
         //<> Intervalle [65..90] <=> [A..Z] du tableau ASCII
         if (corr_ascii >= 65 && corr_ascii <= 90){
-            //<> Si le caractère chiffré dépasse l'intervalle
+            //<> Si le caractÃ¨re chiffrÃ© dÃ©passe l'intervalle
             if ((corr_ascii + cle) > 90) {
-                //<> Récupération du nombre de pas dépassant l'intervalle [65..90]
+                //<> RÃ©cupÃ©ration du nombre de pas dÃ©passant l'intervalle [65..90]
                 while (over_flow_garbage <= 90) {over_flow++; over_flow_garbage++;}
-                //<> Affectation et chiffrement de chaque caractère
+                //<> Affectation et chiffrement de chaque caractÃ¨re
                 tableauCARACTERESCHIFFRE[i] = 65 + (cle - over_flow);
                 texte[i] = (char) tableauCARACTERESCHIFFRE[i];
             } else{
@@ -111,7 +111,7 @@ int chiffrer(char *texte, int cle){
                 texte[i] = (char) tableauCARACTERESCHIFFRE[i];
             }
         } else{
-            //<> Caractère [ESPACE] du tableau ASCII
+            //<> CaractÃ¨re [ESPACE] du tableau ASCII
             if (corr_ascii == 32) {
                 tableauCARACTERESCHIFFRE[i] = 35;
                 texte[i] = (char) tableauCARACTERESCHIFFRE[i];
