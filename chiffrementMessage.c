@@ -7,7 +7,7 @@
 int verifierAlphanumerique(const char *texte){
     int sizeTEXTE = strlen(texte);
     // Tableau contenant des correspondances en décimal des
-    // caractères alphanumérique
+    // caractères alphanumériques
     int* tableauASCII = NULL;
     int* tableauCARACTERES = NULL;
     tableauASCII = (int*) malloc(4 * (TAILLE_TABLEAU_ASCII)+1);
