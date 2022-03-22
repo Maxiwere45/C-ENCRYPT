@@ -12,11 +12,11 @@
 *                                                                             *
 *  Nom-prénom1 : Amdjad Anrifou                                               *
 *                                                                             *
-*  Nom-prénom2 : Bentaila Fabio                                               *
+*  Nom-prénom2 : Bentaïla Fabio                                               *
 *                                                                             *
 *  Nom-prénom3 : Thomas Daure                                                 *
 *                                                                             *
-*  Nom-prénom4 : Kopec WIktor                                                 *
+*  Nom-prénom4 : Kopec Wiktor                                                 *
 *                                                                             *
 *******************************************************************************
 *                                                                             *
