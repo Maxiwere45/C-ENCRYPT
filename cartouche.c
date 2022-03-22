@@ -16,7 +16,7 @@
 *                                                                             *
 *  Nom-prénom3 : Thomas Daure                                                 *
 *                                                                             *
-*  Nom-prénom4 : Kopec Wiktor                                                  *
+*  Nom-prénom4 : Kopec Wiktor                                                 *
 *                                                                             *
 *******************************************************************************
 *                                                                             *
