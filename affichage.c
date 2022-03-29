@@ -11,7 +11,7 @@ int main(){
     char *monMessagechiffre = NULL;
     monMessagechiffre = malloc(sizeof(char) * strlen(monMessage));
     stpcpy(monMessagechiffre,monMessage);
-    int cle = 24;
+    int cle = 3;
 
     if (verifierAlphanumerique(monMessage) == 1) {
         perror("Ce message n'est pas conforme au chiffrement !");
