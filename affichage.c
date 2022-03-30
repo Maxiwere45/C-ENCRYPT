@@ -24,6 +24,10 @@ int main(){
             printf("====CHIFFREMENT=======\n");
             chiffrer(monMessagechiffre,cle);
             printf("%s\n", monMessagechiffre);
+
+            printf("=======DECHIFFREMENT=======\n");
+            dechiffrer(monMessagechiffre,cle);
+            printf("%s\n", monMessagechiffre);
             free(monMessagechiffre);
             return EXIT_SUCCESS;
         }

@@ -128,7 +128,6 @@ int chiffrer(char *texte, int cle){
 
 int dechiffrer(char *texte, int cle){
     // appel de la fonction de vérification
-    if (verifierAlphanumerique(texte) == 1){exit(EXIT_FAILURE);}
     if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
     int sizeTEXTE = strlen(texte);
     int* tableauCARACTERESDECHIFFRE = NULL;
