@@ -4,7 +4,7 @@
 #include "chiffrementMessage.h" 
 
 int main(){
-    char monMessage[] = "This is the beginning of meditation bro";
+    char monMessage[] = "This is the beginning of meditation";
     char* pointeurMessage = monMessage;
 
 
