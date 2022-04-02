@@ -39,13 +39,7 @@ int chiffrer(char *texte, int cle){
     if (verifierAlphanumerique(texte) == 1){exit(EXIT_FAILURE);}
     if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
     int sizeTEXTE = strlen(texte);
-    int* tableauCARACTERESCHIFFRE = NULL;
-    // Allocation dynamique du message chiffré
-    tableauCARACTERESCHIFFRE = (int*) malloc(4 * (strlen(texte)));
-    if (tableauCARACTERESCHIFFRE == NULL) {
-        perror("Echec de l'allocation mémoire");
-        exit(EXIT_FAILURE);
-    }
+    int caracterechiffre;
     int corr_ascii,over_flow_garbage = 0, over_flow = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
         //<> Code ASCII de chaque caractère
@@ -61,34 +55,38 @@ int chiffrer(char *texte, int cle){
                 //<> Récupération du nombre de pas dépassant l'intervalle [65..90]
                 while (over_flow_garbage <= 90) {over_flow++; over_flow_garbage++;}
                 //<> Affectation et chiffrement de chaque caractère
-                tableauCARACTERESCHIFFRE[i] = 65 + (cle - over_flow);
-                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+                caracterechiffre = 65 + (cle - over_flow);
+                texte[i] = (char) caracterechiffre;
             } else{
-                tableauCARACTERESCHIFFRE[i] = corr_ascii + cle;
-                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+                caracterechiffre = corr_ascii + cle;
+                texte[i] = (char) caracterechiffre;
             }
         //<> Intervalle [a..z] du tableau ASCII
         } else if(corr_ascii >= 97 && corr_ascii <= 122){
             if ((corr_ascii + cle) > 122) {
                 while (over_flow_garbage <= 122) {over_flow++; over_flow_garbage++;}
-                tableauCARACTERESCHIFFRE[i] = 97 + (cle - over_flow);
-                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+                caracterechiffre = 97 + (cle - over_flow);
+                texte[i] = (char) caracterechiffre;
             } else {
-                tableauCARACTERESCHIFFRE[i] = corr_ascii + cle;
-                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+                caracterechiffre = corr_ascii + cle;
+                texte[i] = (char) caracterechiffre;
             }
         } else{
-            //<> Caractère [ESPACE] du tableau ASCII
+            //<> Caractères orthographique du tableau ASCII
             if (corr_ascii == 32) {
-                tableauCARACTERESCHIFFRE[i] = 35;
-                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
-            } else{
-                tableauCARACTERESCHIFFRE[i] = corr_ascii + cle;
-                texte[i] = (char) tableauCARACTERESCHIFFRE[i];
+                caracterechiffre = 35;
+                texte[i] = (char) 35;
+            } else if(corr_ascii == 39){
+                texte[i] = (char) 42;
+            } else if(corr_ascii == 44){ 
+                texte[i] = (char) 45;
+            } else if(corr_ascii == 46){ 
+                texte[i] = (char) 47;
+            }else{
+                texte[i] = (char) corr_ascii + cle;
             }
         }
     }
-    free(tableauCARACTERESCHIFFRE);
     return EXIT_SUCCESS;
 }
 
@@ -96,13 +94,7 @@ int dechiffrer(char *texte, int cle){
     // appel de la fonction de vérification
     if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
     int sizeTEXTE = strlen(texte);
-    int* tableauCARACTERESDECHIFFRE = NULL;
-    // Allocation dynamique du message déchiffré
-    tableauCARACTERESDECHIFFRE = malloc(4 * (strlen(texte)));
-    if (tableauCARACTERESDECHIFFRE == NULL) {
-        perror("Echec de l'allocation mémoire");
-        exit(EXIT_FAILURE);
-    }
+    int caracterechiffre;
     int corr_ascii,over_flow_garbage = 0, over_flow = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
         //<> Code ASCII de chaque caractère
@@ -117,34 +109,38 @@ int dechiffrer(char *texte, int cle){
                 //<> Récupération du nombre de pas dépassant l'intervalle [65..90]
                 while (over_flow_garbage >= 65) {over_flow++; over_flow_garbage--;}
                 //<> Affectation et déchiffrement de chaque caractère
-                tableauCARACTERESDECHIFFRE[i] = 90 - (cle - over_flow);
-                texte[i] = (char) tableauCARACTERESDECHIFFRE[i];
+                caracterechiffre = 90 - (cle - over_flow);
+                texte[i] = (char) caracterechiffre;
             } else{
-                tableauCARACTERESDECHIFFRE[i] = corr_ascii - cle;
-                texte[i] = (char) tableauCARACTERESDECHIFFRE[i];
+                caracterechiffre = corr_ascii - cle;
+                texte[i] = (char) caracterechiffre;
             }
             //<> Intervalle [a..z] du tableau ASCII
         } else if(corr_ascii >= 97 && corr_ascii <= 122){
             if ((corr_ascii - cle) < 97) {
                 while (over_flow_garbage >= 97) {over_flow++; over_flow_garbage--;}
-                tableauCARACTERESDECHIFFRE[i] = 97 - (cle - over_flow);
-                texte[i] = (char) tableauCARACTERESDECHIFFRE[i];
+                caracterechiffre = 97 - (cle - over_flow);
+                texte[i] = (char) caracterechiffre;
             } else {
-                tableauCARACTERESDECHIFFRE[i] = corr_ascii - cle;
-                texte[i] = (char) tableauCARACTERESDECHIFFRE[i];
+                caracterechiffre = corr_ascii - cle;
+                texte[i] = (char) caracterechiffre;
             }
         } else{
             //<> Caractère [ESPACE] du tableau ASCII
-            if (corr_ascii == 35) {
-                tableauCARACTERESDECHIFFRE[i] = 32;
-                texte[i] = (char) tableauCARACTERESDECHIFFRE[i];
-            } else{
-                tableauCARACTERESDECHIFFRE[i] = corr_ascii - cle;
-                texte[i] = (char) tableauCARACTERESDECHIFFRE[i];
+            if (corr_ascii == 35) { 
+                texte[i] = (char) 32;
+            } else if(corr_ascii == 42){ 
+                texte[i] = (char) 39;
+            } else if(corr_ascii == 45){ 
+                texte[i] = (char) 44;
+            } else if(corr_ascii == 47){ 
+                texte[i] = (char) 46;
+            }else{
+                caracterechiffre = corr_ascii + cle;
+                texte[i] = (char) caracterechiffre;
             }
         }
     }
-    free(tableauCARACTERESDECHIFFRE);
     return EXIT_SUCCESS;
 }
 
