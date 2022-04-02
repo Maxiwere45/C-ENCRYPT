@@ -23,13 +23,11 @@ int verifierAlphanumerique(const char *texte){
             counter++;
         }
     }
-
     if (counter == strlen(texte)) {
         return EXIT_SUCCESS;
     } else{
         return EXIT_FAILURE;
-    }
-    
+    } 
 }
 
 void convertirAccents(char *texte){
