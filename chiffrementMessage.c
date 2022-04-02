@@ -2,66 +2,34 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#define TAILLE_TABLEAU_ASCII 52
 
 int verifierAlphanumerique(const char *texte){
     int sizeTEXTE = strlen(texte);
-    // Tableau contenant des correspondances en décimal des
-    // caractères alphanumériques
-    int* tableauASCII = NULL;
-    int* tableauCARACTERES = NULL;
-    tableauASCII = (int*) malloc(4 * (TAILLE_TABLEAU_ASCII)+1);
-    tableauCARACTERES = (int*) malloc(sizeof(int) * strlen(texte));
-
-    //========= VERIFICATION DE L'ALLOCATION =================//
-    if (tableauASCII == NULL) {
-        perror("Echec de l'allocation mémoire");
-        exit(EXIT_FAILURE);
-    }
-
-    if (tableauCARACTERES == NULL) {
-        perror("Echec de l'allocation mémoire");
-        exit(EXIT_FAILURE);
-    }
-    //=========================================================//
-
-    // Remplissage du tableau ASCII alphanumérique [+ SPACE]
-    //>> [OPTIMISATION SEMI-POSSIBLE]
     int count = 0;
-    while (count < TAILLE_TABLEAU_ASCII) {
-        // CARACTERE EN MAJUSCULE [A..Z]
-        for (int i = 65; i <= 90; i++) {
-            tableauASCII[count] = i;
-            count++;
+    int counter = 0;
+    for (int j = 0; j < strlen(texte); j++){
+        for (int k = 65; k < 90; k++)
+        {
+            if ((int) texte[j] == k){counter++;}
         }
-        // CARACTERE EN MINUSCULE [a...z]
-        for (int i = 97; i <= 122; i++) {
-            tableauASCII[count] = i;
-            count++;
+        for (int k = 97; k < 122; k++){
+            if ((int) texte[j] == k){counter++;}
         }
-        // espace inclus
-        tableauASCII[count] = 32;
-        count++;
-    }
-
-    // Remplissage du tableau des valeurs DEC
-    // de chaque caractère du message
-    for (int i = 0; i < sizeTEXTE; i++) {tableauCARACTERES[i] = (int) texte[i];}
-
-    // Analyse alphanumérique de chaque caractère
-    int charAlpha = 0;
-    //>> [OMPTIMISATION SEMI-POSSIBLE] 
-    for (int i = 0; i <= sizeTEXTE; i++) {
-        for (int j = 0; j <= TAILLE_TABLEAU_ASCII; j++){
-            if (tableauCARACTERES[i] == tableauASCII[j]){charAlpha++; break;}
+        // [ESPACE, virgule, apostrophe] inclus
+        if ((int) texte[j] == 32 || 
+            (int) texte[j] == 39 ||
+            (int) texte[j] == 44 || 
+            (int) texte[j] == 46){
+            counter++;
         }
     }
-    // Vidage de la mémoire après utilisation des tableau
-    free(tableauASCII);free(tableauCARACTERES);
 
-    // vérification de l'égalité alphanumérique [+ SPACE]
-    if (charAlpha == sizeTEXTE) {return (EXIT_SUCCESS);}
-    else{return (EXIT_FAILURE);}
+    if (counter == strlen(texte)) {
+        return EXIT_SUCCESS;
+    } else{
+        return EXIT_FAILURE;
+    }
+    
 }
 
 void convertirAccents(char *texte){
