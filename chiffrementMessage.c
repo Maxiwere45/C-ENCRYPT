@@ -34,13 +34,12 @@ void convertirAccents(char *texte){
 
 }
 
-int chiffrer(char *texte, int cle){
+int chiffrerC(char *texte, int cle){
     // appel de la fonction de vérification
     if (verifierAlphanumerique(texte) == 1){exit(EXIT_FAILURE);}
     if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
     int sizeTEXTE = strlen(texte);
-    int caracterechiffre;
-    int corr_ascii,over_flow_garbage = 0, over_flow = 0;
+    int corr_ascii,caracterechiffre,over_flow_garbage = 0, over_flow = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
         //<> Code ASCII de chaque caractère
         corr_ascii = (int)texte[i];
@@ -76,21 +75,16 @@ int chiffrer(char *texte, int cle){
             if (corr_ascii == 32) {
                 caracterechiffre = 35;
                 texte[i] = (char) 35;
-            } else if(corr_ascii == 39){
-                texte[i] = (char) 42;
-            } else if(corr_ascii == 44){ 
-                texte[i] = (char) 45;
-            } else if(corr_ascii == 46){ 
-                texte[i] = (char) 47;
-            }else{
-                texte[i] = (char) corr_ascii + cle;
-            }
+            } else if(corr_ascii == 39){texte[i] = (char) 42;
+            } else if(corr_ascii == 44){texte[i] = (char) 45;
+            } else if(corr_ascii == 46){texte[i] = (char) 47;
+            } else{texte[i] = (char) corr_ascii + cle;}
         }
     }
     return EXIT_SUCCESS;
 }
 
-int dechiffrer(char *texte, int cle){
+int dechiffrerC(char *texte, int cle){
     // appel de la fonction de vérification
     if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
     int sizeTEXTE = strlen(texte);
@@ -127,23 +121,28 @@ int dechiffrer(char *texte, int cle){
             }
         } else{
             //<> Caractère [ESPACE] du tableau ASCII
-            if (corr_ascii == 35) { 
-                texte[i] = (char) 32;
-            } else if(corr_ascii == 42){ 
-                texte[i] = (char) 39;
-            } else if(corr_ascii == 45){ 
-                texte[i] = (char) 44;
-            } else if(corr_ascii == 47){ 
-                texte[i] = (char) 46;
-            }else{
-                caracterechiffre = corr_ascii + cle;
-                texte[i] = (char) caracterechiffre;
-            }
+            if (corr_ascii == 35) {texte[i] = (char) 32;
+            } else if(corr_ascii == 42){texte[i] = (char) 39;
+            } else if(corr_ascii == 45){texte[i] = (char) 44;
+            } else if(corr_ascii == 47){texte[i] = (char) 46;
+            } else{ caracterechiffre = corr_ascii + cle;
+                texte[i] = (char) caracterechiffre;}
         }
     }
     return EXIT_SUCCESS;
 }
 
+int chiffrerV(char *texte, char *cle){
+
+}
+
+int dechiffrerV(char *texte, char *cle){
+    
+}
+
+
 int affichage(){
-    return 0;
+    
+
+    return EXIT_SUCCESS;
 }

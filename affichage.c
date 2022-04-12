@@ -26,7 +26,7 @@ int main(){
             printf("%s\n", monMessagechiffre);
 
             printf("=======DECHIFFREMENT=======\n");
-            dechiffrer(monMessagechiffre,cle);
+            dechiffrerC(monMessagechiffre,cle);
             printf("%s\n", monMessagechiffre);
             free(monMessagechiffre);
             return EXIT_SUCCESS;
