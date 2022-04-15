@@ -11,6 +11,7 @@ Cette méthode de codage consiste à décaler les lettres de $n$ rangs, vers la 
 ### **LE CHIFFRE DE VIGENERE**
 
 Le chiffre de Vigenère est un système de chiffrement par substitution polyalphabétique dans lequel une même lettre du message clair peut, suivant sa position dans celui-ci, être remplacée par des lettres différentes, contrairement à un système de chiffrement mono alphabétique comme le chiffre de César.
+
 ---
 
 [...]
