@@ -136,10 +136,22 @@ int chiffrerV(char *texte, char *cle){
 
 }
 
-int dechiffrerV(char *texte, char *cle){
-    
+int chiffrerV(char *texte, char *cle){
+    // Création du tableau de vigénère
+    char tableauVigenere2D[26][26];
+    int indexeur = 65;
+    for (int i = 0; i < 26; i++){
+        for (int j = 0; j < 26; j++) {
+            // Correspondance ASCII
+            tableauVigenere2D[i][j] = (char) indexeur;
+            indexeur++;
+            if (indexeur > 90) {
+                indexeur = 65;
+            }
+        }
+        indexeur = 65 + (i+1);
+    }
 }
-
 
 int affichage(){
     
