@@ -8,5 +8,5 @@ Projet codé en C ayant pour but de <strong>chiffrer</strong> et de <strong>déc
 
 ---
 
-<!-- à compléter-->
+<!-- à compléter  -->
 
