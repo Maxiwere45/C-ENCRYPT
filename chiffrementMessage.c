@@ -133,10 +133,6 @@ int dechiffrerC(char *texte, int cle){
 }
 
 int chiffrerV(char *texte, char *cle){
-
-}
-
-int chiffrerV(char *texte, char *cle){
     // Création du tableau de vigénère
     char tableauVigenere2D[26][26];
     int indexeur = 65;
@@ -153,8 +149,10 @@ int chiffrerV(char *texte, char *cle){
     }
 }
 
-int affichage(){
+int chiffrerV(char *texte, char *cle){
     
+}
 
+int affichage(){
     return EXIT_SUCCESS;
 }

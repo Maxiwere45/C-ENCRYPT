@@ -1,13 +1,13 @@
 all:
-	gcc -o affichage affichage.c chiffrementMessage.c
+	gcc -o main main.c chiffrementMessage.c
 
-affichage: affichage.o chiffrementMessage.o
-	gcc -o affichage affichage.o chiffrementMessage.o
+main: main.o chiffrementMessage.o
+	gcc -o main main.o chiffrementMessage.o
 
 chiffrementMessage.o: chiffrementMessage.c chiffrementMessage.h
 	gcc -c chiffrementMessage.c
 
 clean:
-	rm *.o && rm affichage
+	rm *.o && rm main
 	
 
