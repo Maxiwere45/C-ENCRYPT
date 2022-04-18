@@ -149,7 +149,7 @@ int chiffrerV(char *texte, char *cle){
     }
 }
 
-int chiffrerV(char *texte, char *cle){
+int dechiffrerV(char *texte, char *cle){
     
 }
 
