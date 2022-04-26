@@ -3,10 +3,10 @@
 #include <stdlib.h>
 
 int verifierAlphanumerique(const char *texte){
-    int sizeTEXTE = strlen(texte);
+    int sizeTEXTE = strlen(texte) - 1;
     int count = 0;
     int counter = 0;
-    for (int j = 0; j < strlen(texte); j++){
+    for (int j = 0; j < sizeTEXTE; j++){
         for (int k = 65; k < 90; k++)
         {
             if ((int) texte[j] == k){counter++;}
@@ -22,7 +22,7 @@ int verifierAlphanumerique(const char *texte){
             counter++;
         }
     }
-    if (counter == strlen(texte)) {
+    if (counter == sizeTEXTE) {
         return EXIT_SUCCESS;
     } else{
         return EXIT_FAILURE;
@@ -34,10 +34,7 @@ void convertirAccents(char *texte){
 }
 
 int chiffrerC(char *texte, int cle){
-    // appel de la fonction de vérification
-    if (verifierAlphanumerique(texte) == 1){exit(EXIT_FAILURE);}
-    if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
-    int sizeTEXTE = strlen(texte);
+    int sizeTEXTE = strlen(texte) - 1;
     int corr_ascii,caracterechiffre,over_flow_garbage = 0, over_flow = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
         //<> Code ASCII de chaque caractère
@@ -86,7 +83,7 @@ int chiffrerC(char *texte, int cle){
 int dechiffrerC(char *texte, int cle){
     // appel de la fonction de vérification
     if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
-    int sizeTEXTE = strlen(texte);
+    int sizeTEXTE = strlen(texte) - 1;
     int caracterechiffre;
     int corr_ascii,over_flow_garbage = 0, over_flow = 0;
     for (int i = 0; i < sizeTEXTE; i++) {

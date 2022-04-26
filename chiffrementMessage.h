@@ -1,12 +1,13 @@
-// FICHIER C CONTENANT LES ENTETES DES FONCTIONS DE CHIFFREMENT
+// FICHIER C CONTENANT LES ENTETES DES FONCTIONS
 
 /**
  * @brief Vérifie si le message à chiffrer ou à déchiffrer 
- * ne comporte que des caractères alphanumériques (avec certaines caractères)
+ * ne comporte que des caractères alphanumériques (avec certaines caractères).
+ * Retourne 0 si ok, 1 sinon
  * @param texte Message
  * @return int
  */
-int verifierAlphanumerique(char *texte);
+int verifierAlphanumerique(const char *texte);
 
 /**
  * @brief Convertit les accents en chaine alphanumériques 
