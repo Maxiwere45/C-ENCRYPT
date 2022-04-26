@@ -1,4 +1,4 @@
-<img  style="float: left; margin: 0 10px 0 0; " alt="" src="https://cdn.discordapp.com/attachments/895662497464463391/964420944166805534/Group_5.png">
+<img  style="float: left; margin: 0 10px 0 0; " alt="" src="Logo_projet_C.png">
 
 # **C-ENCRYPT**
 <div>
