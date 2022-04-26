@@ -48,10 +48,3 @@ int chiffrerV(char *texte, char *cle);
  * @return int 
  */
 int dechiffrerV(char *texte, char *cle);
-
-/**
- * @brief Interface
- * 
- * @return int
- */
-int affichage();

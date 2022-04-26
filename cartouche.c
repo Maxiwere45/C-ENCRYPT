@@ -20,7 +20,10 @@
 *                                                                             *
 *******************************************************************************
 *                                                                             *
-*  Nom du fichier :  chiffrementMessage.c & chiffrementMessage.h              *
-*                                                                             *
+*  Nom des fichier : - chiffrementMessage.c                                   *
+                     - chiffrementMessage.h                                   *
+                     - affichage.c                                            *
+                     - makefile                                               *
+                                                                              *
 ******************************************************************************/
 

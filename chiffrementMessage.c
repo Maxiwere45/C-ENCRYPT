@@ -151,7 +151,3 @@ int chiffrerV(char *texte, char *cle){
 int dechiffrerV(char *texte, char *cle){
     
 }
-
-int affichage(){
-    return EXIT_SUCCESS;
-}
