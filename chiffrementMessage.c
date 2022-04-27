@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 int verifierAlphanumerique(const char *texte){
     int sizeTEXTE = strlen(texte) - 1;
@@ -30,10 +31,20 @@ int verifierAlphanumerique(const char *texte){
 }
 
 void convertirAccents(char *texte){
-
 }
 
-int chiffrerC(char *texte, int cle){
+int verifierCleVigenere(const char *cle){
+    int len = strlen(cle);
+    for (int i = 0; i < len; i++) {
+        if (cle[i] > 90 || cle[i] < 65) {
+            return EXIT_SUCCESS;
+        } else {
+            exit(EXIT_FAILURE);
+        }
+    }
+}
+
+int chiffrerC(char *texte, const int cle){
     int sizeTEXTE = strlen(texte) - 1;
     int corr_ascii,caracterechiffre,over_flow_garbage = 0, over_flow = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
@@ -80,7 +91,7 @@ int chiffrerC(char *texte, int cle){
     return EXIT_SUCCESS;
 }
 
-int dechiffrerC(char *texte, int cle){
+int dechiffrerC(char *texte, const int cle){
     int sizeTEXTE = strlen(texte) - 1;
     int caracterechiffre;
     int corr_ascii,over_flow_garbage = 0, over_flow = 0;
@@ -127,23 +138,44 @@ int dechiffrerC(char *texte, int cle){
     return EXIT_SUCCESS;
 }
 
-int chiffrerV(char *texte, char *cle){
+int chiffrerV(char *texte, const char *cle){
     // Création du tableau de vigénère
     char tableauVigenere2D[26][26];
-    int indexeur = 65;
+    char caractere_mess;
+    int indexeur = 65,
+    long_mess = (int) strlen(texte),
+    long_cle = (int) strlen(cle),
+    incle = 0,i,j,k;
     for (int i = 0; i < 26; i++){
         for (int j = 0; j < 26; j++) {
             // Correspondance ASCII
             tableauVigenere2D[i][j] = (char) indexeur;
             indexeur++;
-            if (indexeur > 90) {
-                indexeur = 65;
-            }
+            if (indexeur > 90) {indexeur = 65;}
         }
         indexeur = 65 + (i+1);
     }
+    while (i < long_mess) {
+        if ((int) texte[i] == 39 || 
+            (int) texte[i] == 64 ||
+            (int) texte[i] == 44 ||
+            (int) texte[i] == 46 ||
+            (int) texte[i] == 32) {
+            i++;
+        }
+        caractere_mess = toupper(texte[i]);
+        j = 0;
+        k = 0;
+        while (tableauVigenere2D[0][j] != caractere_mess){ j++;}
+        while (tableauVigenere2D[k][0] != cle[incle]){k++;}
+        texte[i] = tableauVigenere2D[k][j];
+        incle++;
+        if (incle >= long_cle) {incle = 0;}
+        i++;
+    }
+    return EXIT_SUCCESS;
 }
 
-int dechiffrerV(char *texte, char *cle){
+int dechiffrerV(char *texte, const char *cle){
     
 }

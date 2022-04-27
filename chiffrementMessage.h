@@ -21,7 +21,7 @@ void convertirAccents(char *texte);
  * @param cle Clé de chiffrement
  * @return int 
  */
-int chiffrerC(char *texte, int cle);
+int chiffrerC(char *texte, const int cle);
 
 /**
  * @brief Déchiffre un message chiffré par la méthode César
@@ -30,7 +30,16 @@ int chiffrerC(char *texte, int cle);
  * @param cle Clé de déchiffrement
  * @return int
  */
-int dechiffrerC(char *texte, int cle);
+int dechiffrerC(char *texte, const int cle);
+
+/**
+ * @brief Vérifie la si la clé fournie pour coder ou décoder un message par
+ * la méthode de vigénère est valide
+ * 
+ * @param cle Clé à vérifier
+ * @return int 
+ */
+int verifierCleVigenere(const char *cle);
 
 /**
  * @brief Crypte un message par la méthode Vigénère
@@ -39,7 +48,7 @@ int dechiffrerC(char *texte, int cle);
  * @param cle Clé de chiffrement
  * @return int 
  */
-int chiffrerV(char *texte, char *cle);
+int chiffrerV(char *texte, const char *cle);
 
 /**
  * @brief Dechiffre un message par la méthode Vigénère
@@ -48,4 +57,4 @@ int chiffrerV(char *texte, char *cle);
  * @param cle Clé de dechiffrement
  * @return int 
  */
-int dechiffrerV(char *texte, char *cle);
+int dechiffrerV(char *texte, const char *cle);

@@ -3,15 +3,19 @@
 #include <string.h>
 #include "chiffrementMessage.h"
 #define MAX_SIZE_MESSAGE 564
+#define MAX_SIZE_KEY 20
 
 int main(){
     int value,cle,temp,ret,ver_alpha,nbCharLu = 0;
-    size_t taille = 0;
-    char *copy = NULL;
+    size_t tailleMESS = 0,tailleCLE = 0;
+    char *cleV = NULL;
     char *message = NULL;
     char *messageChiffre = NULL;
     char *messageDechiffre = NULL;
+    char *cleVcopy = NULL;
+    char *copy = NULL;
     copy = (char*) malloc(sizeof(char) * MAX_SIZE_MESSAGE);
+    cleVcopy = (char*) malloc(sizeof(char) * MAX_SIZE_KEY);
     if (copy == NULL){
         printf("Erreur interne détécté !\n");
         printf("\tÉxtinction du programme...\n");
@@ -20,7 +24,7 @@ int main(){
     printf("=============== >> C-ENCRYPT << ===============\n");
     printf(">> Ce programme peut chiffrer ou déchiffrer un message avec plus de 564 caractères (une paragraphe)\n");
     printf("> Entrez un message: \n >> ");
-    nbCharLu = getline(&copy, &taille, stdin);
+    nbCharLu = getline(&copy, &tailleMESS, stdin);
     if (nbCharLu > (MAX_SIZE_MESSAGE+1)){
         printf("Message trop volumineux !\n");
         printf("\tÉxtinction du programme...\n");
@@ -59,6 +63,9 @@ int main(){
                 printf("\tÉxtinction du programme...\n");
                 exit(EXIT_FAILURE);
             }
+            messageChiffre = (char*) malloc(sizeof(char) * nbCharLu);
+            strncpy(messageChiffre,message, nbCharLu);
+            free(message);
             switch (value){
                 // César
                 case 1:
@@ -80,9 +87,6 @@ int main(){
                             exit(EXIT_FAILURE);
                         }
                     }
-                    messageChiffre = (char*) malloc(sizeof(char) * nbCharLu);
-                    strncpy(messageChiffre,message, nbCharLu);
-                    free(message);
                     printf("Chiffrement en cours...\n");
                     temp = chiffrerC(messageChiffre, cle);
                     printf("Message chiffré: %s\n",messageChiffre);
@@ -90,7 +94,26 @@ int main(){
                     break;
                 // Vigénère
                 case 2:
-                    printf("=============== CHIFFREMENT DE VIGENERE ===============\n");
+                    printf("=============== CHIFFREMENT PAR VIGENERE ===============\n");
+                    printf("Entrez la clé de chiffrement [MAJUSCULE]: ");
+                    ret = scanf("%s", cleVcopy);
+                    if (ret != 1) {
+                        printf("Valeur incorrecte detecté !\n");
+                        printf("\tÉxtinction du programme...\n");
+                        exit(EXIT_FAILURE);
+                    }
+                    if (verifierCleVigenere(cleVcopy) != 0){
+                        printf("Clé invalide !\n");
+                        printf("\tÉxtinction du programme...\n");
+                        exit(EXIT_FAILURE);
+                    }
+                    cleV = (char*) malloc(sizeof(char) * strlen(cleVcopy)+1);
+                    strncpy(cleV,cleVcopy,strlen(cleVcopy)+1);
+                    free(cleVcopy);
+                    printf("Chiffrement en cours...\n");
+                    temp = chiffrerV(messageChiffre, cleV);
+                    printf("Message chiffré: %s\n",messageChiffre);
+                    free(messageChiffre);
                     break;
                 default:
                     printf("Erreur detecté !\n");

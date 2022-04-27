@@ -1,3 +1,5 @@
 affichage
 *.o
 .vscode
+debug.c
+debug
