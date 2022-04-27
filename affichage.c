@@ -27,7 +27,7 @@ int main(){
         exit(EXIT_FAILURE);
     }
     message = (char*) malloc(sizeof(char) * nbCharLu);
-    strcpy(message,copy);
+    strncpy(message,copy,nbCharLu);
     free(copy);
     
     printf("Que souhaitez-vous faire de ce message ?\n");
@@ -81,11 +81,12 @@ int main(){
                         }
                     }
                     messageChiffre = (char*) malloc(sizeof(char) * nbCharLu);
-                    strcpy(messageChiffre,message);
+                    strncpy(messageChiffre,message, nbCharLu);
                     free(message);
                     printf("Chiffrement en cours...\n");
                     temp = chiffrerC(messageChiffre, cle);
                     printf("Message chiffré: %s\n",messageChiffre);
+                    free(messageChiffre);
                     break;
                 // Vigénère
                 case 2:
@@ -133,11 +134,12 @@ int main(){
                         }
                     }
                     messageDechiffre = (char*) malloc(sizeof(char) * nbCharLu);
-                    strcpy(messageDechiffre,message);
+                    strncpy(messageDechiffre,message,nbCharLu);
                     free(message);
                     printf("déchiffrement en cours...\n");
                     temp = dechiffrerC(messageDechiffre, cle);
                     printf("Message déchiffré: %s\n",messageDechiffre);
+                    free(messageDechiffre);
                     break;
                 // Vigénère
                 case 2:
@@ -153,6 +155,5 @@ int main(){
         default:
             break;
     }
-    
     return EXIT_SUCCESS;
 }

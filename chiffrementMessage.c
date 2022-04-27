@@ -81,14 +81,12 @@ int chiffrerC(char *texte, int cle){
 }
 
 int dechiffrerC(char *texte, int cle){
-    // appel de la fonction de vérification
-    if (cle > 25 || cle < 0){exit(EXIT_FAILURE);}
     int sizeTEXTE = strlen(texte) - 1;
     int caracterechiffre;
     int corr_ascii,over_flow_garbage = 0, over_flow = 0;
     for (int i = 0; i < sizeTEXTE; i++) {
         //<> Code ASCII de chaque caractère
-        corr_ascii = (int)texte[i];
+        corr_ascii = (int) texte[i];
         //<> compteurs de dépassement
         over_flow = 0;
         over_flow_garbage = corr_ascii;
@@ -105,12 +103,13 @@ int dechiffrerC(char *texte, int cle){
                 caracterechiffre = corr_ascii - cle;
                 texte[i] = (char) caracterechiffre;
             }
-            //<> Intervalle [a..z] du tableau ASCII
+        //<> Intervalle [a..z] du tableau ASCII
         } else if(corr_ascii >= 97 && corr_ascii <= 122){
             if ((corr_ascii - cle) < 97) {
                 while (over_flow_garbage >= 97) {over_flow++; over_flow_garbage--;}
-                caracterechiffre = 97 - (cle - over_flow);
-                texte[i] = (char) caracterechiffre;
+                
+                    caracterechiffre = 122 - (cle - over_flow);
+                    texte[i] = (char) caracterechiffre;
             } else {
                 caracterechiffre = corr_ascii - cle;
                 texte[i] = (char) caracterechiffre;

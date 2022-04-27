@@ -10,3 +10,8 @@ C-ENCRYPT est un programme codé en language C permettant de <strong>chiffrer</s
 
 <!-- à compléter  -->
 
+**Développeurs** :
+* *Amdjad Anrifou*
+* *Fabio Bentaila*
+* *Wiktor Kopec*
+* *Thomas daure*
