@@ -8,6 +8,6 @@ chiffrementMessage.o: chiffrementMessage.c chiffrementMessage.h
 	gcc -c chiffrementMessage.c
 
 clean:
-	rm affichage && *.o  
+	rm affichage && clear
 	
 

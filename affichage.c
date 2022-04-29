@@ -48,7 +48,7 @@ int main(){
         // Chiffrement
         case 1:
         ver_alpha = verifierAlphanumerique(message);
-        if (ver_alpha == 1){
+        if (ver_alpha != 1){
             printf("Message non-conforme à un chiffrement !\n");
             printf("\tÉxtinction du programme...\n");
             exit(EXIT_FAILURE);
@@ -107,12 +107,11 @@ int main(){
                         printf("\tÉxtinction du programme...\n");
                         exit(EXIT_FAILURE);
                     }
-                    //verifierCleVigenere(cleV);
                     printf("Chiffrement en cours...\n");
                     chiffrerV(messageChiffre,cleV);
                     printf("Message chiffré : \n%s\n", messageChiffre);
                     free(messageChiffre);
-
+                    free(cleV);
                 default:
                     break;
             }
@@ -162,6 +161,23 @@ int main(){
                 // Vigénère
                 case 2:
                     printf("=============== DÉCHIFFREMENT DE VIGENERE ===============\n");
+                    printf("Entrez la clé de déchiffrement [MAJUSCULE et < 20]: ");
+                    ret = scanf("%s", copyCle);
+                    cleV = (char*) malloc(1 * strlen(copyCle));
+                    strcpy(cleV,copyCle);
+                    ver_cle = verifierCleVigenere(cleV);
+                    if (strlen(copyCle) > MAX_SIZE_KEY ||
+                        ret != 1 ||
+                        ver_cle != 0) {
+                        printf("Clé invalide !\n");
+                        printf("\tÉxtinction du programme...\n");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("Déchiffrement en cours...\n");
+                    dechiffrerV(messageDechiffre,cleV);
+                    printf("Message dechiffré : %s\n", messageDechiffre);
+                    free(messageDechiffre);
+                    free(cleV);
                     break;
                 default:
                     printf("Erreur detecté !\n");

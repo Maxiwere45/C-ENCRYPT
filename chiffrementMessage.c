@@ -5,17 +5,15 @@
 
 int verifierAlphanumerique(const char *texte){
     int sizeTEXTE = strlen(texte) - 1;
-    int count = 0;
     int counter = 0;
     for (int j = 0; j < sizeTEXTE; j++){
-        for (int k = 65; k < 90; k++)
-        {
+        for (int k = 65; k < 90; k++){
             if ((int) texte[j] == k){counter++;}
         }
         for (int k = 97; k < 122; k++){
             if ((int) texte[j] == k){counter++;}
         }
-        // [ESPACE, virgule, apostrophe] inclus
+        //<> Caractères orthographique du tableau ASCII
         if ((int) texte[j] == 32 || 
             (int) texte[j] == 39 ||
             (int) texte[j] == 44 || 
@@ -30,13 +28,13 @@ int verifierAlphanumerique(const char *texte){
     } 
 }
 
+//>> TODO : fonction complexe
 void convertirAccents(char *texte){
 }
 
 int verifierCleVigenere(char *cle){
     int len = strlen(cle);
     int caract,count = 0,i = 0;
-    
     while (i < len){
         caract = (int) cle[i];
         if (caract > 90 || caract < 65){
@@ -129,7 +127,6 @@ int dechiffrerC(char *texte, const int cle){
         } else if(corr_ascii >= 97 && corr_ascii <= 122){
             if ((corr_ascii - cle) < 97) {
                 while (over_flow_garbage >= 97) {over_flow++; over_flow_garbage--;}
-                
                     caracterechiffre = 122 - (cle - over_flow);
                     texte[i] = (char) caracterechiffre;
             } else {
@@ -137,19 +134,75 @@ int dechiffrerC(char *texte, const int cle){
                 texte[i] = (char) caracterechiffre;
             }
         } else{
-            //<> Caractère [ESPACE] du tableau ASCII
+            //<> Caractère orthographique du tableau ASCII
             if (corr_ascii == 35) {texte[i] = (char) 32;
             } else if(corr_ascii == 42){texte[i] = (char) 39;
             } else if(corr_ascii == 45){texte[i] = (char) 44;
             } else if(corr_ascii == 47){texte[i] = (char) 46;
             } else{ caracterechiffre = corr_ascii + cle;
-                texte[i] = (char) caracterechiffre;}
+                texte[i] = (char) caracterechiffre;
+            }
         }
     }
     return EXIT_SUCCESS;
 }
 
 int chiffrerV(char *texte, char *cle){
+    // Tableau de vigénère
+    char tableauVigenere2D[26][26];
+    char caractere_mess;
+    int indexeur = 65,
+    // Longeur du message
+    long_mess = (int) strlen(texte) - 1,
+    // Longeur de la clé
+    long_cle = (int) strlen(cle),
+    incle = 0,i = 0,j,k;
+    // remplissage du tableau
+    for (int p = 0; p < 26; p++){
+        for (int s = 0; s < 26; s++) {
+            // Correspondance ASCII
+            tableauVigenere2D[p][s] = (char) indexeur;
+            indexeur++;
+            if (indexeur > 90) {indexeur = 65;}
+        }
+        indexeur = 65 + (p+1);
+    }
+
+    while (i < long_mess) {
+        // Caractère othographique : on skip
+        if ((int) texte[i] == 39 ||
+            (int) texte[i] == 44 ||
+            (int) texte[i] == 46 ||
+            (int) texte[i] == 32){
+            i++;
+        }
+        caractere_mess = toupper(texte[i]);
+        j = 0;
+        k = 0;
+        // Colonne j
+        while (tableauVigenere2D[0][j] != caractere_mess){ j++;}
+        // ligne k
+        while (tableauVigenere2D[k][0] != cle[incle]){k++;}
+        //on obtient la lettre [k][j] qu'on afecte au message
+        texte[i] = tableauVigenere2D[k][j];
+        incle++;
+
+        // Dépassement de la taille de la clé on rebobine 
+        if (incle >= long_cle) {incle = 0;}
+        i++;
+
+        // IDEM qu'au début
+        if ((int) texte[i] == 39 ||
+            (int) texte[i] == 44 ||
+            (int) texte[i] == 46 ||
+            (int) texte[i] == 32){
+            i++;
+        }
+    }
+    return EXIT_SUCCESS;
+}
+
+int dechiffrerV(char *texte, char *cle){
     // Tableau de vigénère
     char tableauVigenere2D[26][26];
     char caractere_mess;
@@ -166,31 +219,33 @@ int chiffrerV(char *texte, char *cle){
         }
         indexeur = 65 + (p+1);
     }
+
     while (i < long_mess) {
-        if ((int) texte[i] == 64 ||
+        
+        if ((int) texte[i] == 39 ||
             (int) texte[i] == 44 ||
             (int) texte[i] == 46 ||
-            (int) texte[i] == 32) {
-            i++;
-        }
-        //>> Un problème empêche de skip le caractère SPACE :(
-        if ((int) texte[i] == 39) {
-            texte[i] = 39;
+            (int) texte[i] == 32){
             i++;
         }
         caractere_mess = toupper(texte[i]);
         j = 0;
         k = 0;
-        while (tableauVigenere2D[0][j] != caractere_mess){ j++;}
-        while (tableauVigenere2D[k][0] != cle[incle]){k++;}
-        texte[i] = tableauVigenere2D[k][j];
+        // Ligne j
+        while (tableauVigenere2D[j][0] != cle[incle]){j++;}
+        // on cherche le caractère i du message 
+        while (tableauVigenere2D[j][k] != caractere_mess){k++;}
+        // on trouve la colonne [0][k] et on affecte
+        texte[i] = tableauVigenere2D[0][k];
         incle++;
         if (incle >= long_cle) {incle = 0;}
         i++;
+        if ((int) texte[i] == 39 ||
+            (int) texte[i] == 44 ||
+            (int) texte[i] == 46 ||
+            (int) texte[i] == 32){
+            i++;
+        }
     }
     return EXIT_SUCCESS;
-}
-
-int dechiffrerV(char *texte, const char *cle){
-    
 }

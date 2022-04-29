@@ -39,7 +39,7 @@ int dechiffrerC(char *texte, const int cle);
  * @param cle Clé à vérifier
  * @return int 
  */
-int verifierCleVigenere(const char *cle);
+int verifierCleVigenere(char *cle);
 
 /**
  * @brief Crypte un message par la méthode Vigénère
@@ -48,7 +48,7 @@ int verifierCleVigenere(const char *cle);
  * @param cle Clé de chiffrement
  * @return int 
  */
-int chiffrerV(char *texte, const char *cle);
+int chiffrerV(char *texte, char *cle);
 
 /**
  * @brief Dechiffre un message par la méthode Vigénère
@@ -57,4 +57,4 @@ int chiffrerV(char *texte, const char *cle);
  * @param cle Clé de dechiffrement
  * @return int 
  */
-int dechiffrerV(char *texte, const char *cle);
+int dechiffrerV(char *texte, char *cle);
