@@ -33,15 +33,26 @@ int verifierAlphanumerique(const char *texte){
 void convertirAccents(char *texte){
 }
 
-int verifierCleVigenere(const char *cle){
+int verifierCleVigenere(char *cle){
     int len = strlen(cle);
-    for (int i = 0; i < len; i++) {
-        if (cle[i] > 90 || cle[i] < 65) {
-            return EXIT_SUCCESS;
-        } else {
-            exit(EXIT_FAILURE);
+    int caract,count = 0,i = 0;
+    
+    while (i < len){
+        caract = (int) cle[i];
+        if (caract > 90 || caract < 65){
+            count--;
         }
+        count++; 
+        i++;
     }
+
+    if (count == len) {
+        return EXIT_SUCCESS;
+    } else{
+        return EXIT_FAILURE;
+    }
+    
+    
 }
 
 int chiffrerC(char *texte, const int cle){
@@ -138,29 +149,33 @@ int dechiffrerC(char *texte, const int cle){
     return EXIT_SUCCESS;
 }
 
-int chiffrerV(char *texte, const char *cle){
-    // Création du tableau de vigénère
+int chiffrerV(char *texte, char *cle){
+    // Tableau de vigénère
     char tableauVigenere2D[26][26];
     char caractere_mess;
     int indexeur = 65,
-    long_mess = (int) strlen(texte),
+    long_mess = (int) strlen(texte) - 1,
     long_cle = (int) strlen(cle),
-    incle = 0,i,j,k;
-    for (int i = 0; i < 26; i++){
+    incle = 0,i = 0,j,k;
+    for (int p = 0; p < 26; p++){
         for (int j = 0; j < 26; j++) {
             // Correspondance ASCII
-            tableauVigenere2D[i][j] = (char) indexeur;
+            tableauVigenere2D[p][j] = (char) indexeur;
             indexeur++;
             if (indexeur > 90) {indexeur = 65;}
         }
-        indexeur = 65 + (i+1);
+        indexeur = 65 + (p+1);
     }
     while (i < long_mess) {
-        if ((int) texte[i] == 39 || 
-            (int) texte[i] == 64 ||
+        if ((int) texte[i] == 64 ||
             (int) texte[i] == 44 ||
             (int) texte[i] == 46 ||
             (int) texte[i] == 32) {
+            i++;
+        }
+        //>> Un problème empêche de skip le caractère SPACE :(
+        if ((int) texte[i] == 39) {
+            texte[i] = 39;
             i++;
         }
         caractere_mess = toupper(texte[i]);
