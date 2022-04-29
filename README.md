@@ -7,8 +7,27 @@ C-ENCRYPT est un programme codé en language C permettant de <strong>chiffrer</s
 
 ---
 
+## **Installation et Utilisation**
 
-<!-- à compléter  -->
+Avant toute chose, assurez-vous d'avoir installé le compilateur `gcc` ou `MinGW` sur votre machine.
+* <a href="https://winlibs.com">Cliquer ici pour obtenir gcc et MinGW</a>
+
+
+### **Étape 1**
+Téléchargez le fichier *.zip* est decompressez-le dans un dossier de vore choix
+
+### **Étape 2**
+* *Windows*
+    1. Lancez powershell ou cmd
+    2. Positionnez-vous dans le dossier cible avec la commande `cd`
+    3. Éxécuter la commande `make`
+    4. Éxécuter la commande `./affichage`
+
+---
+
+## **Spécification**
+
+<!-- à compléter DEMAIN !!!! -->
 
 **Développeurs** :
 * *Amdjad Anrifou*
