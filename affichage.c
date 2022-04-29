@@ -48,7 +48,7 @@ int main(){
         // Chiffrement
         case 1:
         ver_alpha = verifierAlphanumerique(message);
-        if (ver_alpha != 1){
+        if (ver_alpha != 0){
             printf("Message non-conforme à un chiffrement !\n");
             printf("\tÉxtinction du programme...\n");
             exit(EXIT_FAILURE);
@@ -187,6 +187,9 @@ int main(){
             }
             break;
         default:
+            printf("Valeur incorrecte detecté !\n");
+            printf("\tÉxtinction du programme...\n");
+            exit(EXIT_FAILURE);
             break;
     }
     return EXIT_SUCCESS;
