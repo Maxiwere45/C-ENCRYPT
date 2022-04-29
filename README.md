@@ -14,11 +14,11 @@ Avant toute chose, assurez-vous d'avoir installé le compilateur `gcc` ou `MinGW
 
 
 ### **Étape 1**
-Téléchargez le fichier *.zip* est decompressez-le dans un dossier de vore choix
+Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 
 ### **Étape 2**
 * *Windows*
-    1. Lancez powershell ou cmd
+    1. Lancez `powershell` ou `cmd`
     2. Positionnez-vous dans le dossier cible avec la commande `cd`
     3. Éxécuter la commande `make`
     4. Éxécuter la commande `./affichage`
