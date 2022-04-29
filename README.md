@@ -1,4 +1,4 @@
-<img  style="float: left; margin: 0 10px 0 0; " alt="" src="Logo_projet_C.png">
+<img  style="float: left; margin: 0 10px 0 0; " alt="" src="./data/Logo_projet_C.png">
 
 # **C-ENCRYPT**
 <div>

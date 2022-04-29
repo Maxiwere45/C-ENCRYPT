@@ -22,7 +22,7 @@ int main(){
         exit(EXIT_FAILURE);
     }
     printf("=============== >> C-ENCRYPT << ===============\n");
-    printf(">> Ce programme peut chiffrer ou déchiffrer un message avec plus de 564 caractères (une paragraphe)\n");
+    printf(">> Ce programme peut chiffrer ou déchiffrer un \nmessage avec plus de 564 caractères (une paragraphe)\n");
     printf("> Entrez un message: \n >> ");
     nbCharLu = getline(&copy, &tailleMESS, stdin);
     if (nbCharLu > (MAX_SIZE_MESSAGE+1)){
@@ -37,6 +37,7 @@ int main(){
     printf("Que souhaitez-vous faire de ce message ?\n");
     printf(" -> 1 [Chiffrer]\n");
     printf(" -> 2 [Déchiffrer]\n");
+    printf(" -> 3 [Quitter]\n");
     printf(" >> ");
     ret = scanf("%d", &temp);
     if (ret != 1) {
@@ -186,11 +187,16 @@ int main(){
                     break;
             }
             break;
+        case 3:
+            free(copyCle);
+            free(message);
+            break;
         default:
             printf("Valeur incorrecte detecté !\n");
             printf("\tÉxtinction du programme...\n");
             exit(EXIT_FAILURE);
             break;
     }
+    printf("\nFin du programme...\n");
     return EXIT_SUCCESS;
 }
