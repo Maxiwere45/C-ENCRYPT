@@ -16,6 +16,17 @@ int main(){
     char *copyCle = NULL;
     copyCle = (char*) malloc(sizeof(char) * MAX_SIZE_KEY);
     copy = (char*) malloc(sizeof(char) * MAX_SIZE_MESSAGE);
+    // ----------------------------------------------
+    FILE *data = fopen("./data/content.txt","a+");
+    if (data == NULL) {
+        perror("Ouverture du fichier impossible !");
+        exit(EXIT_FAILURE);
+    }
+    char sep[] = "---------------------------------";
+    char *reponse = NULL;
+    reponse = (char*) malloc(4);
+    int rep;
+    // ---------------------------------------------- 
     if (copy == NULL){
         printf("Erreur interne détécté !\n");
         printf("\tÉxtinction du programme...\n");
@@ -91,6 +102,12 @@ int main(){
                     printf("Chiffrement en cours...\n");
                     temp = chiffrerC(messageChiffre, cle);
                     printf("Message chiffré: %s\n",messageChiffre);
+                    printf("Voulez-vous sauvegarder le message ? >> ");
+                    rep = scanf("%s", reponse);
+                    if (strcmp(reponse, "oui") == 0) {
+                        fprintf(data,"%s\nType de chiffrement : César\nClé de déchiffrement: %d\nMessage:\n%s",sep,cle,messageChiffre);
+                        printf("Message sauvergardé dans le fichier data/content.txt !");
+                    }
                     free(messageChiffre);
                     break;
                 // Vigénère
@@ -111,6 +128,12 @@ int main(){
                     printf("Chiffrement en cours...\n");
                     chiffrerV(messageChiffre,cleV);
                     printf("Message chiffré : \n%s\n", messageChiffre);
+                    printf("Voulez-vous sauvegarder le message ? >> ");
+                    rep = scanf("%s", reponse);
+                    if (strcmp(reponse, "oui") == 0) {
+                        fprintf(data,"%s\nType de chiffrement : Vigénère\nClé de déchiffrement: %s\nMessage:\n%s",sep,cleV,messageChiffre);
+                        printf("Message sauvergardé dans le fichier data/content.txt !");
+                    }
                     free(messageChiffre);
                     free(cleV);
                 default:
