@@ -1,0 +1,15 @@
+      _____       ______ _   _  _____ _______     _______ _______ 
+     / ____|     |  ____| \ | |/ ____|  __ \ \   / /  __ \__   __|
+    | |   ______ | |__  |  \| | |    | |__) \ \_/ /| |__) | | |   
+    | |  |______||  __| | . ` | |    |  _  / \   / |  ___/  | |   
+    | |____      | |____| |\  | |____| | \ \  | |  | |      | |   
+     \_____|     |______|_| \_|\_____|_|  \_\ |_|  |_|      |_|     
+
+    -------------------------------------------------------------
+    | Ce programme peut chiffrer ou déchiffrer un message avec  |
+    | plus de 564 caractères (une paragraphe). Les caractères   |
+    |  accentués ne sont pas prise en charge pour le moment,    |
+    |  une mise à jour future arrivera avec de nouvelles        |
+    |  fonctionalités. N'hésitez pas à contacter les            |
+    |  développeur en cas de problème ^^.                       |
+    -------------------------------------------------------------

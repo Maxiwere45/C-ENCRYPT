@@ -18,7 +18,12 @@ int main(){
     copy = (char*) malloc(sizeof(char) * MAX_SIZE_MESSAGE);
     // ----------------------------------------------
     FILE *data = fopen("./data/content.txt","a+");
+    FILE *description = fopen("./data/description_aff.txt", "r");
     if (data == NULL) {
+        perror("Ouverture du fichier impossible !");
+        exit(EXIT_FAILURE);
+    }
+    if (description == NULL) {
         perror("Ouverture du fichier impossible !");
         exit(EXIT_FAILURE);
     }
@@ -26,15 +31,20 @@ int main(){
     char *reponse = NULL;
     reponse = (char*) malloc(4);
     int rep;
+    signed char desc[10000];
     // ---------------------------------------------- 
     if (copy == NULL){
         printf("Erreur interne détécté !\n");
         printf("\tÉxtinction du programme...\n");
         exit(EXIT_FAILURE);
     }
-    printf("=============== >> C-ENCRYPT << ===============\n");
-    printf(">> Ce programme peut chiffrer ou déchiffrer un \nmessage avec plus de 564 caractères (une paragraphe)\n");
-    printf("> Entrez un message: \n >> ");
+
+    while (!feof(description)) {
+        fgets(desc, 10000, description);
+        printf("%s", desc);
+    }
+
+    printf("\n\n> Entrez du texte: \n >> ");
     nbCharLu = getline(&copy, &tailleMESS, stdin);
     if (nbCharLu > (MAX_SIZE_MESSAGE+1)){
         printf("Message trop volumineux !\n");
@@ -109,6 +119,7 @@ int main(){
                         printf("Message sauvergardé dans le fichier data/content.txt !");
                     }
                     free(messageChiffre);
+                    free(reponse);
                     break;
                 // Vigénère
                 case 2:
@@ -135,6 +146,7 @@ int main(){
                         printf("Message sauvergardé dans le fichier data/content.txt !");
                     }
                     free(messageChiffre);
+                    free(reponse);
                     free(cleV);
                 default:
                     break;
@@ -220,6 +232,8 @@ int main(){
             exit(EXIT_FAILURE);
             break;
     }
+    fclose(data);
+    fclose(description);
     printf("\nFin du programme...\n");
     return EXIT_SUCCESS;
 }
