@@ -53,37 +53,37 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 
 ### Affichage du prgramme
 
-<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/aff_prog.png">
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/aff_prog.png" width=700>
 
 <br>
 
 ### Chiffrement par César
-<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testCesar.png">
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testCesar.png" width=700>
 
 <br>
 
 ### Chiffrement par Vigénère
-<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testVigenere.png">
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testVigenere.png" width=700>
 
 <br>
 
 ### Déchiffrement par César
-<img  style="float: center; margin: 5px;border: 2px solid white; 0; " alt="" src="./data/testDCesar.png">
+<img  style="float: center; margin: 5px;border: 2px solid white; 0; " alt="" src="./data/testDCesar.png" width=700>
 
 <br>
 
 ### Déchiffrement par Vigénère
-<img  style="float: center; margin: 5px;;border:solid white; 0; " alt="" src="./data/testDVigenere.png">
+<img  style="float: center; margin: 5px;;border:solid white; 0; " alt="" src="./data/testDVigenere.png" width=700>
 
 <br>
 
 ### Sauvegarde dans un fichier
 
-<img  style="float: left; margin: 5px;border:solid white; 0; " alt="" src="./data/testSave.png">
+<img  style="float: left; margin: 5px;border:solid white; 0; " alt="" src="./data/testSave.png" width=700>
 
 <br>
 
-<img  style="float: left; margin: 5px; border:solid white; 0; " alt="" src="./data/save_content.png">
+<img  style="float: left; margin: 5px; border:solid white; 0; " alt="" src="./data/save_content.png" width=700>
 
 <br>
 
