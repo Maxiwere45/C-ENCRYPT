@@ -22,7 +22,7 @@ C-ENCRYPT est un programme codé en language C permettant de <strong>chiffrer</s
     * [Déchiffrement par César](#déchiffrement-par-césar)
     * [Déchiffrement par Vigénère](#déchiffrement-par-vigénère)
     * [Sauvegarde dans un fichier](#sauvegarde-dans-un-fichier)
-* **[Credits](#credits)**
+* **[Crédits](#crédits)**
 
 <br>
 
@@ -52,27 +52,27 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 
 ### Affichage du prgramme
 
-<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/aff_prog.png" width=700>
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/affichage_desc.png" width=700>
 
 <br>
 
 ### Chiffrement par César
-<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testCesar.png" width=700>
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testCC.png" width=700>
 
 <br>
 
 ### Chiffrement par Vigénère
-<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testVigenere.png" width=700>
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testCV.png" width=700>
 
 <br>
 
 ### Déchiffrement par César
-<img  style="float: center; margin: 5px;border: 2px solid white; 0; " alt="" src="./data/testDCesar.png" width=700>
+<img  style="float: center; margin: 5px;border: 2px solid white; 0; " alt="" src="./data/testDC.png" width=700>
 
 <br>
 
 ### Déchiffrement par Vigénère
-<img  style="float: center; margin: 5px;;border:solid white; 0; " alt="" src="./data/testDVigenere.png" width=700>
+<img  style="float: center; margin: 5px;;border:solid white; 0; " alt="" src="./data/testDV.png" width=700>
 
 <br>
 
@@ -82,15 +82,15 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 
 <br>
 
-<img  style="float: left; margin: 5px; border:solid white; 0; " alt="" src="./data/save_content.png" width=700>
+<img  style="float: left; margin: 5px; border:solid white; 0; " alt="" src="./data/testSave2.png" width=700>
 
 <br>
 
-# Credits
+# Crédits
 
 <img  style="float: center; margin: 0 10px 0; " alt="" src="./data/logo_iut_info.png" width=120>
 
-Ce programme a été réalisé par des étudiants de l'*IUT informatique de Toulouse* dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
+Ce programme a été réalisé par des étudiants de l'**IUT informatique de Toulouse** dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
 * [**Amdjad Anrifou**](https://github.com/maxiwere45)
 * [**Fabio Bentaila**](https://github.com/Fujitoo)
 * [**Wiktor Kopec**](https://github.com/WIKPAK)

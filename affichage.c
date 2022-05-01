@@ -83,8 +83,8 @@ int main(){
     }
     strncpy(message,copy,nbCharLu);
     free(copy);
-    
-    printf("Que souhaitez-vous faire de ce texte ?\n");
+    printf("---------------------------------------------");
+    printf("\nQue souhaitez-vous faire de ce texte ?\n");
     printf(" -> 1 [Chiffrer]\n");
     printf(" -> 2 [Déchiffrer]\n");
     printf(" -> 3 [Quitter]\n");
