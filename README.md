@@ -67,14 +67,17 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 <br>
 
 ### Sauvegarde dans un fichier
-<img  style="float: center; margin: 0 10px 0;border:solid white; 0; " alt="" src="./data/testSave.png">
+<img  style="float: left; margin: 0 10px 0;border:solid white; 0; " alt="" src="./data/testSave.png">
 
 <br>
 
 # Credits
+
+<img  style="float: center; margin: 0 10px 0; " alt="" src="./data/logo_iut_info.png">
 
 Ce programme a été réalisé dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
 * [**Amdjad Anrifou**](https://github.com/maxiwere45)
 * [**Fabio Bentaila**](https://github.com/Fujitoo)
 * [**Wiktor Kopec**](https://github.com/WIKPAK)
 * [**Thomas Daure**](https://github.com/Cheloo01)
+
