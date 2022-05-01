@@ -42,37 +42,48 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
     3. Éxécuter la commande `make`
     4. Éxécuter la commande `./affichage`
 
+* *Linux*
+    1. Lancez le `Terminal UNIX`
+    2. Positionnez-vous dans le dossier cible avec la commande `cd`
+    3. Éxécuter la commande `make`
+    4. Éxécuter la commande `./affichage`
+
 
 # Tests
 
 ### Affichage du prgramme
 
-<img  style="float: center; margin: 0 10px 0;border:solid white; 0; " alt="" src="./data/aff_prog.png">
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/aff_prog.png">
 
 <br>
 
 ### Chiffrement par César
-<img  style="float: center; margin: 0 10px 0;border:solid white; 0; " alt="" src="./data/testCesar.png">
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testCesar.png">
 
 <br>
 
 ### Chiffrement par Vigénère
-<img  style="float: center; margin: 0 10px 0;border:solid white; 0; " alt="" src="./data/testVigenere.png">
+<img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/testVigenere.png">
 
 <br>
 
 ### Déchiffrement par César
-<img  style="float: center; margin: 0 10px 0;border: 2px solid white; 0; " alt="" src="./data/testDCesar.png">
+<img  style="float: center; margin: 5px;border: 2px solid white; 0; " alt="" src="./data/testDCesar.png">
 
 <br>
 
 ### Déchiffrement par Vigénère
-<img  style="float: center; margin: 0 10px 0;border:solid white; 0; " alt="" src="./data/testDVigenere.png">
+<img  style="float: center; margin: 5px;;border:solid white; 0; " alt="" src="./data/testDVigenere.png">
 
 <br>
 
 ### Sauvegarde dans un fichier
-<img  style="float: left; margin: 0 10px 0;border:solid white; 0; " alt="" src="./data/testSave.png">
+
+<img  style="float: left; margin: 5px;border:solid white; 0; " alt="" src="./data/testSave.png">
+
+<br>
+
+<img  style="float: left; margin: 5px; border:solid white; 0; " alt="" src="./data/save_content.png">
 
 <br>
 
