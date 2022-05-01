@@ -27,3 +27,6 @@
                                                                               *
 ******************************************************************************/
 
+/*
+- La grande majorité des commits ont été fait dans un seul ordinateur
+*/
