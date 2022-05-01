@@ -7,7 +7,7 @@
 ![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 
 <div>
-C-ENCRYPT est un programme codé en language C permettant de <strong>chiffrer</strong> et de <strong>déchiffrer</strong> des messages. Ce programme utilise le <a href="https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage">chiffre de César</a> ainsi que le <a href="https://fr.wikipedia.org/wiki/Chiffre_de_Vigen%C3%A8re">chiffre de Vigenère</a> que l'utilisateur pourra choisir selon ses préférences.
+C-ENCRYPT est un programme codé en language C permettant de <strong>chiffrer</strong> et de <strong>déchiffrer</strong> des messages. Ce programme utilise le <a href="https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage">chiffre de César</a> ainsi que le <a href="https://fr.wikipedia.org/wiki/Chiffre_de_Vigen%C3%A8re">chiffre de Vigenère</a> que l'utilisateur pourra choisir selon ses préférences. Une nouvelle méthode de chiffrement arrivera bientôt ^^.
 </div>
 
 <br>
@@ -91,7 +91,7 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 
 <img  style="float: center; margin: 0 10px 0; " alt="" src="./data/logo_iut_info.png" width=120>
 
-Ce programme a été réalisé par des étudiant de l'IUT informatique de Toulouse dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
+Ce programme a été réalisé par des étudiant de l'*IUT informatique de Toulouse* dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
 * [**Amdjad Anrifou**](https://github.com/maxiwere45)
 * [**Fabio Bentaila**](https://github.com/Fujitoo)
 * [**Wiktor Kopec**](https://github.com/WIKPAK)
