@@ -44,11 +44,11 @@ int main(){
     FILE *data = fopen("./data/content.txt","a+");
     FILE *description = fopen("./data/description_aff.txt", "r");
     if (data == NULL) {
-        perror("Ouverture du fichier impossible !");
+        perror("Ouverture du fichier content.txt impossible !");
         exit(EXIT_FAILURE);
     }
     if (description == NULL) {
-        perror("Ouverture du fichier impossible !");
+        perror("Ouverture du fichier description_aff.txt impossible !");
         exit(EXIT_FAILURE);
     }
     char sep[] = "---------------------------------";
@@ -58,7 +58,7 @@ int main(){
     signed char desc[10000];
     // ---------------------------------------------- 
     if (copy == NULL){
-        printf("Erreur interne détécté !\n");
+        printf("Erreur d'allocation détécté !\n");
         printf("\tÉxtinction du programme...\n");
         exit(EXIT_FAILURE);
     }
@@ -76,10 +76,15 @@ int main(){
         exit(EXIT_FAILURE);
     }
     message = (char*) malloc(sizeof(char) * nbCharLu);
+    if (message == NULL){
+        printf("Erreur d'allocation détécté !\n");
+        printf("\tÉxtinction du programme...\n");
+        exit(EXIT_FAILURE);
+    }
     strncpy(message,copy,nbCharLu);
     free(copy);
     
-    printf("Que souhaitez-vous faire de ce message ?\n");
+    printf("Que souhaitez-vous faire de ce texte ?\n");
     printf(" -> 1 [Chiffrer]\n");
     printf(" -> 2 [Déchiffrer]\n");
     printf(" -> 3 [Quitter]\n");
@@ -95,7 +100,7 @@ int main(){
         case 1:
         ver_alpha = verifierAlphanumerique(message);
         if (ver_alpha != 0){
-            printf("Message non-conforme à un chiffrement !\n");
+            printf("Texte non conforme à un chiffrement !\n");
             printf("\tÉxtinction du programme...\n");
             exit(EXIT_FAILURE);
         }
@@ -110,6 +115,11 @@ int main(){
                 exit(EXIT_FAILURE);
             }
             messageChiffre = (char*) malloc(sizeof(char) * nbCharLu);
+            if (messageChiffre == NULL){
+                printf("Erreur d'allocation détécté !\n");
+                printf("\tÉxtinction du programme...\n");
+                exit(EXIT_FAILURE);
+            }
             strncpy(messageChiffre,message, nbCharLu);
             free(message);
             switch (value){
@@ -135,8 +145,8 @@ int main(){
                     }
                     printf("Chiffrement en cours...\n");
                     temp = chiffrerC(messageChiffre, cle);
-                    printf("Message chiffré: %s\n",messageChiffre);
-                    printf("Voulez-vous sauvegarder le message ? >> ");
+                    printf("Texte chiffré: %s\n",messageChiffre);
+                    printf("Voulez-vous sauvegarder ce texte chiffré [oui/non] ? >> ");
                     rep = scanf("%s", reponse);
                     if (strcmp(reponse, "oui") == 0) {
                         fprintf(data,"%s\nType de chiffrement : César\nClé de déchiffrement: %d\nMessage:\n%s",sep,cle,messageChiffre);

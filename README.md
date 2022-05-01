@@ -48,7 +48,6 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
     3. Éxécuter la commande `make all`
     4. Éxécuter la commande `./affichage`
 
-
 # Tests
 
 ### Affichage du prgramme
