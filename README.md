@@ -57,7 +57,7 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 <br>
 
 ### Déchiffrement par César
-<img  style="float: center; margin: 0 10px 0;border:solid white; 0; " alt="" src="./data/testDCesar.png">
+<img  style="float: center; margin: 0 10px 0;border: 2px solid white; 0; " alt="" src="./data/testDCesar.png">
 
 <br>
 
