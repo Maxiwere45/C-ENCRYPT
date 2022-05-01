@@ -204,7 +204,7 @@ int chiffrerV(char *texte, char *cle){
         j = 0;
         k = 0;
         // Colonne j
-        while (tableauVigenere2D[0][j] != caractere_mess){ j++;}
+        while (tableauVigenere2D[0][j] != caractere_mess){j++;}
         // ligne k
         while (tableauVigenere2D[k][0] != cle[incle]){k++;}
         //on obtient la lettre [k][j] qu'on afecte au message
@@ -245,7 +245,6 @@ int dechiffrerV(char *texte, char *cle){
     }
 
     while (i < long_mess) {
-        
         if ((int) texte[i] == 39 ||
             (int) texte[i] == 44 ||
             (int) texte[i] == 46 ||

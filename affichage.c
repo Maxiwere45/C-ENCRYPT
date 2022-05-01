@@ -224,7 +224,7 @@ int main(){
                     }
                     printf("déchiffrement en cours...\n");
                     temp = dechiffrerC(messageDechiffre, cle);
-                    printf("Message déchiffré: %s\n",messageDechiffre);
+                    printf("Texte déchiffré: %s\n",messageDechiffre);
                     free(messageDechiffre);
                     free(cleV);
                     break;
@@ -245,7 +245,7 @@ int main(){
                     }
                     printf("Déchiffrement en cours...\n");
                     dechiffrerV(messageDechiffre,cleV);
-                    printf("Message dechiffré : %s\n", messageDechiffre);
+                    printf("Texte dechiffré : %s\n", messageDechiffre);
                     free(messageDechiffre);
                     free(cleV);
                     break;
