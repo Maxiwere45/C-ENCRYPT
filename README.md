@@ -73,7 +73,7 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 
 # Credits
 
-<img  style="float: center; margin: 0 10px 0; " alt="" src="./data/logo_iut_info.png">
+<img  style="float: center; margin: 0 10px 0; " alt="" src="./data/logo_iut_info.png" width=120>
 
 Ce programme a été réalisé dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
 * [**Amdjad Anrifou**](https://github.com/maxiwere45)
