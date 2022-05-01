@@ -150,7 +150,7 @@ int main(){
                     rep = scanf("%s", reponse);
                     if (strcmp(reponse, "oui") == 0) {
                         fprintf(data,"%s\nType de chiffrement : César\nClé de déchiffrement: %d\nMessage:\n%s",sep,cle,messageChiffre);
-                        printf("Message sauvergardé dans le fichier data/content.txt !");
+                        printf("Texte sauvergardé dans le fichier data/content.txt !");
                     }
                     free(messageChiffre);
                     free(reponse);
@@ -177,7 +177,7 @@ int main(){
                     rep = scanf("%s", reponse);
                     if (strcmp(reponse, "oui") == 0) {
                         fprintf(data,"%s\nType de chiffrement : Vigénère\nClé de déchiffrement: %s\nMessage:\n%s",sep,cleV,messageChiffre);
-                        printf("Message sauvergardé dans le fichier data/content.txt !");
+                        printf("Texte sauvergardé dans le fichier data/content.txt !");
                     }
                     free(messageChiffre);
                     free(reponse);
