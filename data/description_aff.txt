@@ -8,8 +8,8 @@
     -------------------------------------------------------------
     | Ce programme peut chiffrer ou déchiffrer un message avec  |
     | plus de 564 caractères (une paragraphe). Les caractères   |
-    |  accentués ne sont pas prise en charge pour le moment,    |
-    |  une mise à jour future arrivera avec de nouvelles        |
-    |  fonctionalités. N'hésitez pas à contacter les            |
-    |  développeur en cas de problème ^^.                       |
+    | accentués ne sont pas prise en charge pour le moment,     |
+    | une mise à jour future arrivera avec de nouvelles         |
+    | fonctionalités. N'hésitez pas à contacter les             |
+    | développeur en cas de problèmes ^^.                       |
     -------------------------------------------------------------

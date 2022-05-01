@@ -39,13 +39,13 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 * *Windows*
     1. Lancez `powershell` ou `cmd`
     2. Positionnez-vous dans le dossier cible avec la commande `cd`
-    3. Éxécuter la commande `make`
+    3. Éxécuter la commande `make all`
     4. Éxécuter la commande `./affichage`
 
 * *Linux*
     1. Lancez le `Terminal UNIX`
     2. Positionnez-vous dans le dossier cible avec la commande `cd`
-    3. Éxécuter la commande `make`
+    3. Éxécuter la commande `make all`
     4. Éxécuter la commande `./affichage`
 
 
@@ -91,7 +91,7 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 
 <img  style="float: center; margin: 0 10px 0; " alt="" src="./data/logo_iut_info.png" width=120>
 
-Ce programme a été réalisé dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
+Ce programme a été réalisé par des étudiant de l'IUT informatique de Toulouse dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
 * [**Amdjad Anrifou**](https://github.com/maxiwere45)
 * [**Fabio Bentaila**](https://github.com/Fujitoo)
 * [**Wiktor Kopec**](https://github.com/WIKPAK)
