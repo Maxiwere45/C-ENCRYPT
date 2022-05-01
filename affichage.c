@@ -196,7 +196,7 @@ int main(){
                     break;
                 // Vigénère
                 case 2:
-                    printf("=============== DÉCHIFFREMENT DE VIGENERE ===============\n");
+                    printf("=============== DÉCHIFFREMENT PAR VIGENERE ===============\n");
                     printf("Entrez la clé de déchiffrement [MAJUSCULE et < 20]: ");
                     ret = scanf("%s", copyCle);
                     cleV = (char*) malloc(1 * strlen(copyCle));
