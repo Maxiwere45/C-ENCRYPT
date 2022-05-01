@@ -74,7 +74,7 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 # Credits
 
 Ce programme a été réalisé dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
-* *Amdjad Anrifou*
-* *Fabio Bentaila*
-* *Wiktor Kopec*
-* *Thomas Daure*
+* [**Amdjad Anrifou**](https://github.com/maxiwere45)
+* [**Fabio Bentaila**](https://github.com/Fujitoo)
+* [**Wiktor Kopec**](https://github.com/WIKPAK)
+* [**Thomas Daure**](https://github.com/Cheloo01)
