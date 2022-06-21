@@ -35,7 +35,7 @@ Avant toute chose, assurez-vous d'avoir installé le compilateur `gcc` ou `MinGW
 
 
 ### **Étape 1**
-Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
+Téléchargez le fichier *.zip* et decompressez-le dans un dossier de votre choix
 
 ### **Étape 2**
 * *Windows*
@@ -92,7 +92,7 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de vore choix
 
 <img  style="float: center; margin: 0 10px 0; " alt="" src="./data/logo_iut_info.png" width=120>
 
-Ce programme a été réalisé par des étudiants de l'**IUT informatique de Toulouse** dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les dévéloppeurs du programme 
+Ce programme a été réalisé par des étudiants de l'**IUT informatique de Toulouse** dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les développeurs du programme 
 * [**Amdjad Anrifou**](https://github.com/maxiwere45)
 * [**Fabio Bentaila**](https://github.com/Fujitoo)
 * [**Wiktor Kopec**](https://github.com/WIKPAK)
