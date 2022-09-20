@@ -3,7 +3,7 @@
 # **C-ENCRYPT**
 
 ![Language](https://img.shields.io/badge/Language-C-0052cf)
-![Size](https://img.shields.io/badge/Taille-<10Mo-darkgreen)
+![Size](https://img.shields.io/badge/Taille-<5Ko-darkgreen)
 ![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 
 <div>
