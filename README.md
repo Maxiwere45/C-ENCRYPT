@@ -52,7 +52,7 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de votre choi
 
 # Tests
 
-### Affichage du prgramme
+### Affichage du programme
 
 <img  style="float: center; margin: 5px;border:solid white; 0; " alt="" src="./data/affichage_desc.png" width=700>
 
