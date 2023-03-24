@@ -92,7 +92,7 @@ Téléchargez le fichier *.zip* et decompressez-le dans un dossier de votre choi
 
 <img  style="float: center; margin: 0 10px 0; " alt="" src="./data/logo_iut_info.png" width=120>
 
-Ce programme a été réalisé par des étudiants de l'**IUT informatique de Toulouse** dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contactez les développeurs du programme 
+Ce programme a été réalisé par des étudiants de l'**IUT informatique de Toulouse** dans le cadre d'un mini projet de groupe en programmation C. Pour en savoir un peu plus, vous pouvez contacter les développeurs du programme 
 * [**Amdjad Anrifou**](https://github.com/maxiwere45)
 * [**Fabio Bentaila**](https://github.com/FabioBnt)
 * [**Wiktor Kopec**](https://github.com/WIKPAK)
